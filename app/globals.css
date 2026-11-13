@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* FutureX Technologies brand palette */
+  --color-midnight: #080b14; /* dark surfaces (product mockups, closing band) */
+  --color-navy: #0b1020; /* primary brand — text on light, dark band background */
+  --color-card: #111629; /* dark card surface (product imagery) */
+  --color-violet: #6c5ce7; /* accent — electric violet */
+  --color-violet-soft: #8175f0; /* accent hover — used as glow/ring, never under white text */
+  --color-cool: #a7adc0; /* secondary text on dark surfaces */
+  --color-muted: #565d74; /* secondary text on light surfaces — cool gray shade, 6.1:1 on soft */
+  --color-soft: #f5f7ff; /* light background — soft white */
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars while keeping pages scrollable */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  background-color: var(--color-soft);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-violet) 25%, transparent);
+  color: var(--color-navy);
+}
+
+/* Brand focus ring — violet passes 3:1 non-text contrast on both light and dark surfaces */
+:focus-visible {
+  outline: 2px solid var(--color-violet);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Subtle engineering grid used behind the hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(11 16 32 / 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 16 32 / 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Scroll reveal — hidden only when JS is available (html.js), so content
+   degrades gracefully for no-JS clients and crawlers. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-float,
+  .animate-float-slow {
+    animation: none;
+  }
+}
