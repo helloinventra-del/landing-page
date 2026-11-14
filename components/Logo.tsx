@@ -57,7 +57,7 @@ export default function Logo({
           FUTUREX
         </span>
         <span
-          className={`mt-1 text-[8.5px] font-semibold tracking-[0.34em] ${
+          className={`mt-1 text-[9.5px] font-semibold tracking-[0.3em] ${
             light ? "text-cool" : "text-muted"
           }`}
         >

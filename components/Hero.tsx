@@ -36,37 +36,33 @@ export default function Hero() {
 
         <Reveal delay={80}>
           <h1 className="font-display mt-7 text-[42px] font-bold leading-[1.08] tracking-tight text-navy sm:text-6xl lg:text-[72px]">
-            Run your enterprise
+            The operations platform
             <br />
-            on{" "}
-            <span className="bg-gradient-to-r from-violet to-violet-soft bg-clip-text text-transparent">
-              intelligent
-            </span>{" "}
-            systems
+            that{" "}
+            <span className="text-violet">runs itself</span>
           </h1>
         </Reveal>
 
         <Reveal delay={160}>
-          <p className="mx-auto mt-6 max-w-2xl text-[16px] leading-relaxed text-muted sm:text-lg">
-            Enterprise software, automation, and analytics in one platform
-            that scales with you. FutureX runs the operations; you steer the
-            business.
+          <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-muted sm:text-[18px]">
+            Enterprise software, AI-driven automation, and data intelligence in
+            one platform. FutureX runs the operations; you steer the business.
           </p>
         </Reveal>
 
         <Reveal delay={240}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-violet px-7 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-violet hover:shadow-[0_0_36px_rgba(108,92,231,0.45)] hover:ring-2 hover:ring-violet-soft sm:w-auto"
             >
-              Try for free
+              Start free
               <svg viewBox="0 0 16 16" className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex w-full items-center justify-center rounded-full border border-navy/15 bg-white px-7 py-3.5 text-[15px] font-semibold text-navy transition-colors hover:border-navy/30 hover:bg-navy/5 sm:w-auto"
             >
               Book a demo

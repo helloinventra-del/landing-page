@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import StickyCTA from "@/components/StickyCTA";
+import ChatButton from "@/components/ChatButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,7 +19,11 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "FutureX Technologies — Intelligent Enterprise Software",
+  metadataBase: new URL("https://helloinventra-del.github.io/landing-page"),
+  title: {
+    default: "FutureX Technologies — The operations platform that runs itself",
+    template: "%s — FutureX Technologies",
+  },
   description:
     "FutureX Technologies builds AI-driven systems, enterprise software, and business automation for companies that scale. Intelligent Technology | Business Automation | Enterprise Solutions | Scalable Systems | Future Ready.",
   keywords: [
@@ -24,6 +32,34 @@ export const metadata: Metadata = {
     "Enterprise Solutions",
     "Scalable Systems",
     "Future Ready",
+  ],
+  openGraph: {
+    title: "FutureX Technologies — The operations platform that runs itself",
+    description:
+      "Enterprise software, AI-driven automation, and data intelligence in one platform. Live in a week, measured from day one.",
+    siteName: "FutureX Technologies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "FutureX Technologies",
+    description:
+      "Enterprise software, AI-driven automation, and data intelligence in one platform.",
+  },
+};
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "FutureX Technologies",
+  url: "https://helloinventra-del.github.io/landing-page",
+  description:
+    "Intelligent technology company building scalable digital solutions, enterprise software, and AI-driven business automation.",
+  knowsAbout: [
+    "Intelligent Technology",
+    "Business Automation",
+    "Enterprise Solutions",
+    "Scalable Systems",
   ],
 };
 
@@ -45,7 +81,17 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
+        <Navbar />
+        <main id="main" className="relative overflow-x-clip">
+          {children}
+        </main>
+        <Footer />
+        <StickyCTA />
+        <ChatButton />
       </body>
     </html>
   );

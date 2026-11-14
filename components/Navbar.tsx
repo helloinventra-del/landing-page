@@ -1,22 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
-  { label: "Product", href: "#product" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Case Studies", href: "#stories" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Product", href: "/#product" },
+  { label: "Solutions", href: "/#solutions" },
+  { label: "Case Studies", href: "/#stories" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [barOpen, setBarOpen] = useState(true);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -44,21 +47,41 @@ export default function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
+      {/* Announcement bar — collapses on scroll */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          barOpen && !scrolled ? "max-h-10" : "max-h-0"
+        }`}
+      >
+        <div className="bg-navy px-4 py-2.5 text-center">
+          <Link
+            href="/#product"
+            className="text-[12.5px] font-medium text-white"
+            onClick={() => setBarOpen(false)}
+          >
+            Platform 3.0 is live: AI agents now run inside every workflow.{" "}
+            <span className="font-semibold text-violet-soft underline decoration-2 underline-offset-2">
+              See what&apos;s new
+            </span>
+          </Link>
+        </div>
+      </div>
+
       <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#" aria-label="FutureX Technologies — home">
+        <Link href="/" aria-label="FutureX Technologies — home">
           <Logo light={false} id="nav" />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="rounded-full px-4 py-2 text-[14px] font-medium text-muted transition-colors hover:bg-navy/5 hover:text-navy"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -69,8 +92,8 @@ export default function Navbar() {
           >
             Login
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full bg-violet px-5 py-2.5 text-[14px] font-semibold text-white transition-all hover:bg-violet hover:shadow-[0_0_28px_rgba(108,92,231,0.45)] hover:ring-2 hover:ring-violet-soft"
           >
             Try for free
@@ -83,7 +106,7 @@ export default function Navbar() {
             >
               <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger — 44px tap target */}
@@ -113,14 +136,14 @@ export default function Navbar() {
         >
           <div className="flex flex-col">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-3 text-[15px] font-medium text-muted transition-colors hover:bg-navy/5 hover:text-navy"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="mt-4 flex gap-3">
@@ -131,13 +154,13 @@ export default function Navbar() {
             >
               Login
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
               className="flex-1 rounded-full bg-violet px-5 py-3 text-center text-[14px] font-semibold text-white"
             >
               Try for free
-            </a>
+            </Link>
           </div>
         </div>
       )}

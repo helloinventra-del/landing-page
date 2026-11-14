@@ -1,17 +1,36 @@
+import Link from "next/link";
 import Logo from "./Logo";
+import NewsletterForm from "./NewsletterForm";
 
 const COLUMNS = [
   {
     title: "Product",
-    links: ["AI Suite", "Automation", "Analytics", "Security", "Integrations"],
+    links: [
+      { label: "AI Suite", href: "/#product" },
+      { label: "Automation", href: "/#solutions" },
+      { label: "Analytics", href: "/#solutions" },
+      { label: "Security", href: "/security" },
+      { label: "Integrations", href: "/#product" },
+    ],
   },
   {
     title: "Company",
-    links: ["Case Studies", "Pricing", "Blog", "About", "Contact"],
+    links: [
+      { label: "Case Studies", href: "/#stories" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Blog", href: "#" },
+    ],
   },
   {
     title: "Solutions",
-    links: ["FutureX for Enterprise", "FutureX for Startups", "Book a Demo", "FutureX for B2B"],
+    links: [
+      { label: "FutureX for Enterprise", href: "/pricing" },
+      { label: "FutureX for Startups", href: "/pricing" },
+      { label: "Book a Demo", href: "/contact" },
+      { label: "FutureX for B2B", href: "/pricing" },
+    ],
   },
 ];
 
@@ -63,10 +82,13 @@ export default function Footer() {
               </h3>
               <ul className="mt-5 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-[13.5px] text-cool transition-colors hover:text-white">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-[13.5px] text-cool transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -74,7 +96,19 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
+        <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-7 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-[13px] font-semibold text-white">
+              One engineering note per month
+            </p>
+            <p className="mt-1 text-[12.5px] text-cool">
+              How we build the platform, what breaks, and what we learn.
+            </p>
+          </div>
+          <NewsletterForm />
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
           <p className="text-[12.5px] text-cool">
             © 2026 FutureX Technologies. All rights reserved.
           </p>
