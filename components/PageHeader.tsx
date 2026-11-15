@@ -17,7 +17,7 @@ export default function PageHeader({
       <div className="absolute left-1/2 top-[-160px] h-[360px] w-[640px] -translate-x-1/2 rounded-full bg-violet/10 blur-[130px]" />
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <p className="text-[12px] font-semibold tracking-[0.24em] text-violet uppercase">
+          <p className="text-[13px] font-semibold text-violet">
             {eyebrow}
           </p>
           <h1 className="font-display mt-4 text-4xl font-bold leading-[1.1] tracking-tight text-navy sm:text-6xl">

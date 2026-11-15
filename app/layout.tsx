@@ -67,7 +67,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jakarta.variable}`}
+    >
       <body className="bg-soft font-sans text-navy antialiased">
         {/* Gates scroll-reveal hiding behind JS availability */}
         <script

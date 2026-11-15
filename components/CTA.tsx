@@ -12,8 +12,8 @@ export default function CTA() {
 
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <p className="text-[12px] font-semibold tracking-[0.24em] text-violet-soft uppercase">
-            Future Ready
+          <p className="text-[13px] font-semibold text-violet-soft">
+            Future ready
           </p>
           <h2 className="font-display mx-auto mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
             See your own operation running on FutureX

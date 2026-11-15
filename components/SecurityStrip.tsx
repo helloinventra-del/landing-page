@@ -26,7 +26,7 @@ export default function SecurityStrip() {
                 {CONTROLS.map((c) => (
                   <span
                     key={c}
-                    className="rounded-full border border-violet/30 bg-violet/10 px-3.5 py-1.5 text-[12px] font-semibold text-violet"
+                    className="rounded-full border border-navy/15 bg-navy/5 px-3.5 py-1.5 text-[12px] font-semibold text-navy"
                   >
                     {c}
                   </span>

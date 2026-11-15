@@ -6,7 +6,7 @@ function StepVisualConnect() {
       {["S", "G", "H", "J", "N", "O", "Z", "S"].map((c, i) => (
         <span
           key={i}
-          className="flex h-10 items-center justify-center rounded-xl border border-navy/10 bg-white font-display text-[13px] font-bold text-violet shadow-sm"
+          className="flex h-10 items-center justify-center rounded-xl border border-navy/10 bg-white font-display text-[13px] font-bold text-navy shadow-sm"
         >
           {c}
         </span>
@@ -81,7 +81,7 @@ export default function HowItWorks() {
     <section className="px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="how-heading">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="text-[12px] font-semibold tracking-[0.24em] text-violet uppercase">
+          <p className="text-[13px] font-semibold text-violet">
             How it works
           </p>
           <h2
@@ -96,8 +96,8 @@ export default function HowItWorks() {
           {STEPS.map((step, i) => (
             <Reveal key={step.n} delay={i * 90}>
               <div className="flex h-full flex-col rounded-3xl border border-navy/10 bg-white p-7 shadow-sm">
-                <span className="font-display text-[13px] font-bold tracking-[0.2em] text-violet">
-                  {step.n}
+                <span className="font-display text-[13px] font-bold tracking-[0.2em] text-muted">
+                  STEP {step.n}
                 </span>
                 <h3 className="font-display mt-3 text-xl font-bold text-navy">{step.title}</h3>
                 <p className="mt-2.5 flex-1 text-[15px] leading-relaxed text-muted">{step.body}</p>

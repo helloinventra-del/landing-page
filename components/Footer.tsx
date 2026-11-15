@@ -39,7 +39,7 @@ function SocialIcon({ d, label }: { d: string; label: string }) {
     <a
       href="#"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-cool transition-colors hover:border-violet/50 hover:text-white"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-cool transition-colors hover:border-white/40 hover:text-white"
     >
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
         <path d={d} />

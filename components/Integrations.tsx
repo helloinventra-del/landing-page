@@ -43,7 +43,7 @@ export default function Integrations() {
                 key={t.name}
                 className="flex h-14 flex-col items-center justify-center rounded-2xl border border-navy/10 bg-white text-[9px] font-medium text-muted shadow-sm"
               >
-                <span className="font-display text-[15px] font-bold text-violet">{t.name[0]}</span>
+                <span className="font-display text-[15px] font-bold text-navy">{t.name[0]}</span>
                 <span className="mt-0.5">{t.name}</span>
               </span>
             ))}
@@ -68,9 +68,9 @@ export default function Integrations() {
             {TOOLS.map((t) => (
               <span
                 key={t.name}
-                className={`absolute ${t.pos} inline-flex items-center gap-2 rounded-2xl border border-navy/10 bg-white px-4 py-3 text-[13px] font-medium text-muted shadow-sm transition-colors hover:border-violet/40 hover:text-navy`}
+                className={`absolute ${t.pos} inline-flex items-center gap-2 rounded-2xl border border-navy/10 bg-white px-4 py-3 text-[13px] font-medium text-muted shadow-sm transition-colors hover:border-navy/30 hover:text-navy`}
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-violet/10 font-display text-[11px] font-bold text-violet">
+                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-navy/10 font-display text-[11px] font-bold text-navy">
                   {t.name[0]}
                 </span>
                 {t.name}

@@ -146,10 +146,7 @@ export default function FeatureRows() {
           >
             Run the whole business
             <br />
-            from{" "}
-            <span className="bg-gradient-to-r from-violet to-violet-soft bg-clip-text text-transparent">
-              one place
-            </span>
+            from <span className="text-violet">one place</span>
           </h2>
         </Reveal>
 
@@ -158,8 +155,8 @@ export default function FeatureRows() {
             <Reveal key={row.title} delay={60}>
               <div className="grid items-center gap-8 rounded-[2rem] border border-navy/10 bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-2 lg:gap-12">
                 <div id={row.anchor}>
-                  <p className="text-[12px] font-semibold tracking-[0.2em] text-violet uppercase">
-                    0{i + 1} · Platform
+                  <p className="text-[13px] font-semibold text-muted">
+                    Platform {i + 1} of 3
                   </p>
                   <h3 className="font-display mt-3 text-2xl font-bold text-navy sm:text-[28px]">
                     {row.title}
@@ -170,8 +167,8 @@ export default function FeatureRows() {
                   <ul className="mt-6 space-y-2.5">
                     {row.checks.map((check) => (
                       <li key={check} className="flex items-center gap-2.5 text-[14px] text-navy">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet/15">
-                          <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 text-violet" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy/10">
+                          <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 text-navy" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M2.5 6.5l2.5 2.5 4.5-5" />
                           </svg>
                         </span>

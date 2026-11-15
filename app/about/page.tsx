@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
@@ -56,7 +57,24 @@ export default function AboutPage() {
       <section className="px-5 pb-14 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="grid gap-5 rounded-3xl border border-navy/10 bg-navy p-8 sm:grid-cols-3 sm:p-10">
+            <div className="relative h-64 w-full overflow-hidden rounded-3xl sm:h-80">
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=75"
+                alt="The FutureX team working together around a shared desk"
+                fill
+                sizes="(max-width: 768px) 100vw, 1152px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-navy/15" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="px-5 pb-14 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <div className="grid gap-5 rounded-3xl border border-white/10 bg-navy p-8 sm:grid-cols-3 sm:p-10">
               {STATS.map((s) => (
                 <div key={s.v} className="text-center">
                   <p className="font-display text-3xl font-bold text-violet-soft">{s.v}</p>
