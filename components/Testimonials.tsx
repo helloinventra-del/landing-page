@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 const TESTIMONIALS = [
   {
     quote:
-      "FutureX automated 80% of our back-office operations in the first quarter. The AI workflows had already paid for the entire platform before the pilot program officially came to an end.",
+      "OrinexSoft automated 80% of our back-office operations in the first quarter. The AI workflows had already paid for the entire platform before the pilot program officially came to an end.",
     name: "Amelia Hart",
     role: "COO, Lura",
     photo: "photo-1494790108377-be9c29b29330",
@@ -32,7 +32,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "We scaled from 40 to 400 enterprise clients on FutureX without hiring another ops person. The platform carried the growth.",
+      "We scaled from 40 to 400 enterprise clients on OrinexSoft without hiring another ops person. The platform carried the growth.",
     name: "Mira Chen",
     role: "Founder, NextWave",
     photo: "photo-1438761681033-6461ffad8d80",
@@ -55,7 +55,7 @@ export default function Testimonials() {
             id="testimonials-heading"
             className="font-display mx-auto max-w-2xl text-center text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl"
           >
-            Real feedback from teams using FutureX
+            Real feedback from teams using OrinexSoft
           </h2>
         </Reveal>
 

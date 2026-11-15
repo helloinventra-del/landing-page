@@ -4,9 +4,9 @@ import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact — FutureX Technologies",
+  title: "Contact — OrinexSoft",
   description:
-    "Book a 30-minute walkthrough of FutureX on your own operations, start a free trial, or talk to sales. A solutions engineer replies within one business day.",
+    "Book a 30-minute walkthrough of OrinexSoft on your own operations, start a free trial, or talk to sales. A solutions engineer replies within one business day.",
 };
 
 export default function ContactPage() {
@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="See your own operation"
-        highlight="running on FutureX."
+        highlight="running on OrinexSoft."
         sub="Tell us which process hurts the most. We'll show it automated live, on your data, in 30 minutes."
       />
 
@@ -39,7 +39,7 @@ export default function ContactPage() {
                   {
                     n: "2",
                     t: "30-minute walkthrough on your data",
-                    d: "We set up one of your real processes live on FutureX infrastructure.",
+                    d: "We set up one of your real processes live on OrinexSoft infrastructure.",
                   },
                   {
                     n: "3",
@@ -63,10 +63,10 @@ export default function ContactPage() {
                   Prefer email directly?
                 </p>
                 <a
-                  href="mailto:sales@futurex.tech"
+                  href="mailto:sales@orinexsoft.com"
                   className="mt-1 inline-block text-[14px] font-semibold text-violet underline decoration-2 underline-offset-4"
                 >
-                  sales@futurex.tech
+                  sales@orinexsoft.com
                 </a>
               </div>
             </div>

@@ -9,7 +9,7 @@ const STORIES = [
     photo: "photo-1586528116311-ad8dd3c8310d",
     alt: "Lura operations floor where claims are processed",
     story:
-      "Lura moved its entire claims operation onto FutureX AI workflows in a single quarter. Volume doubled. The queue did not.",
+      "Lura moved its entire claims operation onto OrinexSoft AI workflows in a single quarter. Volume doubled. The queue did not.",
     metric: "-35%",
     metricLabel: "operational processing time",
   },
@@ -19,7 +19,7 @@ const STORIES = [
     photo: "photo-1522071820081-009f0129c71c",
     alt: "NextWave delivery team collaborating at their desks",
     story:
-      "NextWave scaled from 40 to 400 enterprise clients in a single year, running every delivery workflow on FutureX.",
+      "NextWave scaled from 40 to 400 enterprise clients in a single year, running every delivery workflow on OrinexSoft.",
     metric: "99.99%",
     metricLabel: "uptime across global infrastructure",
   },
@@ -29,7 +29,7 @@ const STORIES = [
     photo: "photo-1497366216548-37526070297c",
     alt: "Spectrum headquarters office space",
     story:
-      "Spectrum retired six legacy systems in favor of one FutureX deployment, and every department now works from the same data.",
+      "Spectrum retired six legacy systems in favor of one OrinexSoft deployment, and every department now works from the same data.",
     metric: "-42%",
     metricLabel: "annual systems overhead",
   },
@@ -45,7 +45,7 @@ export default function Stories() {
               id="stories-heading"
               className="font-display max-w-xl text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl"
             >
-              Growing stronger with FutureX:{" "}
+              Growing stronger with OrinexSoft:{" "}
               <span className="text-muted">stories from real businesses.</span>
             </h2>
             <Link

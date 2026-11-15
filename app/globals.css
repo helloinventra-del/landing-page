@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* FutureX Technologies brand palette */
+  /* OrinexSoft brand palette */
   --color-midnight: #080b14; /* dark surfaces (product mockups, closing band) */
   --color-navy: #0b1020; /* primary brand — text on light, dark band background */
   --color-card: #111629; /* dark card surface (product imagery) */

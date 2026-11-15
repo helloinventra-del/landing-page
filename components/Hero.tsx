@@ -32,7 +32,7 @@ export default function Hero() {
         <Reveal delay={160}>
           <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-muted sm:text-[18px]">
             Enterprise software, AI-driven automation, and data intelligence in
-            one platform. FutureX runs the operations; you steer the business.
+            one platform. OrinexSoft runs the operations; you steer the business.
           </p>
         </Reveal>
 

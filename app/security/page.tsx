@@ -4,9 +4,9 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Security — FutureX Technologies",
+  title: "Security — OrinexSoft",
   description:
-    "How FutureX protects your data: SOC 2 and ISO 27001 controls, SAML SSO, role-based access, immutable audit logs, encryption in transit and at rest.",
+    "How OrinexSoft protects your data: SOC 2 and ISO 27001 controls, SAML SSO, role-based access, immutable audit logs, encryption in transit and at rest.",
 };
 
 const SECTIONS = [

@@ -5,9 +5,9 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — FutureX Technologies",
+  title: "About — OrinexSoft",
   description:
-    "FutureX Technologies builds intelligent operations software: enterprise systems, AI-driven automation, and data intelligence for companies that scale.",
+    "OrinexSoft builds intelligent operations software: enterprise systems, AI-driven automation, and data intelligence for companies that scale.",
 };
 
 const PILLARS = [
@@ -26,7 +26,7 @@ const PILLARS = [
 ];
 
 const STATS = [
-  { v: "150+", l: "companies run operations on FutureX" },
+  { v: "150+", l: "companies run operations on OrinexSoft" },
   { v: "99.99%", l: "uptime across our infrastructure" },
   { v: "41,209", l: "hours automated last quarter" },
 ];
@@ -38,7 +38,7 @@ export default function AboutPage() {
         eyebrow="About"
         title="We build the software"
         highlight="that runs the business."
-        sub="FutureX Technologies is an intelligent technology company. We build scalable digital solutions, enterprise software, and AI-driven automation under one roof."
+        sub="OrinexSoft is an intelligent technology company. We build scalable digital solutions, enterprise software, and AI-driven automation under one roof."
       />
 
       <section className="px-5 pb-14 sm:px-8">
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <div className="relative h-64 w-full overflow-hidden rounded-3xl sm:h-80">
               <Image
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=75"
-                alt="The FutureX team working together around a shared desk"
+                alt="The OrinexSoft team working together around a shared desk"
                 fill
                 sizes="(max-width: 768px) 100vw, 1152px"
                 className="object-cover"

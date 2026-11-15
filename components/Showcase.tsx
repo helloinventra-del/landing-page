@@ -52,7 +52,7 @@ function AISuitePanel() {
   return (
     <div className="grid gap-4 md:grid-cols-5">
       <div className="rounded-xl border border-violet/30 bg-violet/10 p-4 md:col-span-2">
-        <p className="text-[11px] font-semibold tracking-wide text-violet-soft">ASK FUTUREX AI</p>
+        <p className="text-[11px] font-semibold tracking-wide text-violet-soft">ASK ORINEX AI</p>
         <p className="mt-3 text-[13px] leading-relaxed text-white/90">
           &ldquo;Summarize operational risk across all active projects.&rdquo;
         </p>
@@ -224,7 +224,7 @@ export default function Showcase() {
           <div
             ref={tablistRef}
             role="tablist"
-            aria-label="FutureX Control Center modules"
+            aria-label="OrinexSoft Control Center modules"
             onKeyDown={onKeyDown}
             className="mx-auto mb-8 flex w-fit max-w-full flex-wrap justify-center gap-2 rounded-2xl border border-navy/10 bg-white p-2 shadow-sm"
           >
@@ -263,7 +263,7 @@ export default function Showcase() {
                   <span className="h-2.5 w-2.5 rounded-full bg-violet/70" />
                 </div>
                 <p className="text-[12px] font-medium text-cool">
-                  FutureX Control Center · {TABS.find((t) => t.id === tab)?.label}
+                  OrinexSoft Control Center · {TABS.find((t) => t.id === tab)?.label}
                 </p>
                 <div className="hidden items-center gap-2 sm:flex">
                   <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] text-cool">acme.com</span>

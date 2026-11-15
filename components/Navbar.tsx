@@ -68,7 +68,7 @@ export default function Navbar() {
       </div>
 
       <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" aria-label="FutureX Technologies — home">
+        <Link href="/" aria-label="OrinexSoft — home">
           <Logo light={false} id="nav" />
         </Link>
 

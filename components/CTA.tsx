@@ -16,11 +16,11 @@ export default function CTA() {
             Future ready
           </p>
           <h2 className="font-display mx-auto mt-4 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
-            See your own operation running on FutureX
+            See your own operation running on OrinexSoft
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-cool">
             Bring one real process to a 30-minute walkthrough, watch us set
-            it up on live FutureX infrastructure, and see exactly how it
+            it up on live OrinexSoft infrastructure, and see exactly how it
             behaves under your real workload. No slides.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">

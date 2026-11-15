@@ -13,7 +13,7 @@ const NEXT_STEPS = [
   {
     n: "2",
     title: "30-minute walkthrough on your data",
-    body: "We set up one of your real processes live on FutureX infrastructure.",
+    body: "We set up one of your real processes live on OrinexSoft infrastructure.",
   },
   {
     n: "3",
@@ -71,8 +71,8 @@ export default function ContactForm() {
         </p>
         <p className="mt-5 text-[13px] text-muted">
           In a hurry?{" "}
-          <a href="mailto:sales@futurex.tech" className="font-semibold text-violet underline decoration-2 underline-offset-2">
-            sales@futurex.tech
+          <a href="mailto:sales@orinexsoft.com" className="font-semibold text-violet underline decoration-2 underline-offset-2">
+            sales@orinexsoft.com
           </a>
         </p>
       </div>

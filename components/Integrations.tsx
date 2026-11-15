@@ -11,7 +11,7 @@ const TOOLS = [
   { name: "Okta", pos: "right-[4%] top-[38%]" },
 ];
 
-/** Desktop: constellation around the FutureX hub. Mobile: simple grid. */
+/** Desktop: constellation around the OrinexSoft hub. Mobile: simple grid. */
 export default function Integrations() {
   return (
     <section className="px-5 py-16 sm:px-8 sm:py-24">
@@ -21,7 +21,7 @@ export default function Integrations() {
             Every tool your teams already use, talking to one system
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted">
-            FutureX syncs data across 200+ tools in both directions, so when a
+            OrinexSoft syncs data across 200+ tools in both directions, so when a
             deal closes in Salesforce, finance and operations already know.
           </p>
           <a
@@ -79,11 +79,32 @@ export default function Integrations() {
 
             {/* Hub */}
             <span className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-3xl border border-violet/40 bg-navy shadow-[0_0_60px_rgba(108,92,231,0.35)]">
-              <svg viewBox="0 0 32 32" className="h-9 w-9">
-                <rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="#8175F0" strokeWidth="2" />
-                <path d="M9.5 22.5 L14.5 13.5 L19 18.5 L22.5 9.5" fill="none" stroke="#8175F0" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+              <svg viewBox="0 0 64 64" className="h-9 w-9">
+                <defs>
+                  <linearGradient id="hub-o" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#C45CF7" />
+                    <stop offset="0.55" stopColor="#7C4FF0" />
+                    <stop offset="1" stopColor="#4F3AE8" />
+                  </linearGradient>
+                  <linearGradient id="hub-x" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#A55EF6" />
+                    <stop offset="1" stopColor="#4633E6" />
+                  </linearGradient>
+                  <mask id="hub-hole">
+                    <rect width="64" height="64" fill="white" />
+                    <circle cx="21" cy="34" r="7.2" fill="black" />
+                  </mask>
+                </defs>
+                <g stroke="url(#hub-x)" strokeWidth="11" fill="none">
+                  <path d="M38 9.5 L59.5 53.5" />
+                  <path d="M59.5 9.5 L38 53.5" />
+                </g>
+                <g opacity="0.32" transform="translate(2.5 2.5)">
+                  <circle cx="21" cy="34" r="16.5" fill="#0B1020" mask="url(#hub-hole)" />
+                </g>
+                <circle cx="21" cy="34" r="16.5" fill="url(#hub-o)" mask="url(#hub-hole)" />
               </svg>
-              <span className="font-display mt-1.5 text-[11px] font-bold tracking-[0.14em] text-white">FUTUREX</span>
+              <span className="font-display mt-1.5 text-[11px] font-bold tracking-[0.14em] text-white">ORINEXSOFT</span>
             </span>
           </div>
         </Reveal>

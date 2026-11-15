@@ -59,7 +59,7 @@ const STEPS = [
   {
     n: "01",
     title: "Connect your stack",
-    body: "Link the tools your teams already run on. FutureX syncs data in both directions across 200+ integrations, so records stay identical everywhere.",
+    body: "Link the tools your teams already run on. OrinexSoft syncs data in both directions across 200+ integrations, so records stay identical everywhere.",
     visual: <StepVisualConnect />,
   },
   {

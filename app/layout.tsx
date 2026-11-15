@@ -21,11 +21,11 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://helloinventra-del.github.io/landing-page"),
   title: {
-    default: "FutureX Technologies — The operations platform that runs itself",
-    template: "%s — FutureX Technologies",
+    default: "OrinexSoft — The operations platform that runs itself",
+    template: "%s — OrinexSoft",
   },
   description:
-    "FutureX Technologies builds AI-driven systems, enterprise software, and business automation for companies that scale. Intelligent Technology | Business Automation | Enterprise Solutions | Scalable Systems | Future Ready.",
+    "OrinexSoft builds AI-driven systems, enterprise software, and business automation for companies that scale. Intelligent Technology | Business Automation | Enterprise Solutions | Scalable Systems | Future Ready.",
   keywords: [
     "Intelligent Technology",
     "Business Automation",
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     "Future Ready",
   ],
   openGraph: {
-    title: "FutureX Technologies — The operations platform that runs itself",
+    title: "OrinexSoft — The operations platform that runs itself",
     description:
       "Enterprise software, AI-driven automation, and data intelligence in one platform. Live in a week, measured from day one.",
-    siteName: "FutureX Technologies",
+    siteName: "OrinexSoft",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "FutureX Technologies",
+    title: "OrinexSoft",
     description:
       "Enterprise software, AI-driven automation, and data intelligence in one platform.",
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "FutureX Technologies",
+  name: "OrinexSoft",
   url: "https://helloinventra-del.github.io/landing-page",
   description:
     "Intelligent technology company building scalable digital solutions, enterprise software, and AI-driven business automation.",

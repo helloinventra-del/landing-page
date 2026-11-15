@@ -25,7 +25,7 @@ export default function LogoCloud() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-center text-[13px] font-medium tracking-wide text-muted">
-            <span className="font-semibold text-navy">150+</span> companies run their operations on FutureX
+            <span className="font-semibold text-navy">150+</span> companies run their operations on OrinexSoft
           </p>
         </Reveal>
         <Reveal delay={100}>

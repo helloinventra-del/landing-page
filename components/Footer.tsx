@@ -26,10 +26,10 @@ const COLUMNS = [
   {
     title: "Solutions",
     links: [
-      { label: "FutureX for Enterprise", href: "/pricing" },
-      { label: "FutureX for Startups", href: "/pricing" },
+      { label: "OrinexSoft for Enterprise", href: "/pricing" },
+      { label: "OrinexSoft for Startups", href: "/pricing" },
       { label: "Book a Demo", href: "/contact" },
-      { label: "FutureX for B2B", href: "/pricing" },
+      { label: "OrinexSoft for B2B", href: "/pricing" },
     ],
   },
 ];
@@ -56,7 +56,7 @@ export default function Footer() {
           <div>
             <Logo light id="footer" />
             <p className="mt-5 max-w-xs text-[13.5px] leading-relaxed text-cool">
-              FutureX Technologies builds scalable digital solutions,
+              OrinexSoft builds scalable digital solutions,
               enterprise software, and AI-driven business automation.
             </p>
             <div className="mt-6 flex gap-2.5">
@@ -110,7 +110,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
           <p className="text-[12.5px] text-cool">
-            © 2026 FutureX Technologies. All rights reserved.
+            © 2026 OrinexSoft. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-[12.5px] text-cool transition-colors hover:text-white">

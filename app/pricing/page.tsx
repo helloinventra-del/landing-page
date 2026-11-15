@@ -4,9 +4,9 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Pricing — FutureX Technologies",
+  title: "Pricing — OrinexSoft",
   description:
-    "Straightforward per-seat pricing for FutureX: Start for small teams, Growth for scaling operations, Enterprise for regulated organizations. Talk to sales for custom terms.",
+    "Straightforward per-seat pricing for OrinexSoft: Start for small teams, Growth for scaling operations, Enterprise for regulated organizations. Talk to sales for custom terms.",
 };
 
 const TIERS = [
