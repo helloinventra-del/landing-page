@@ -1,16 +1,32 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const TOOLS = [
-  { name: "Slack", pos: "left-[6%] top-[16%]" },
-  { name: "Google", pos: "right-[8%] top-[10%]" },
-  { name: "Salesforce", pos: "left-[16%] top-[62%]" },
-  { name: "GitHub", pos: "right-[16%] top-[58%]" },
-  { name: "Notion", pos: "left-[42%] top-[2%]" },
-  { name: "Jira", pos: "left-[30%] top-[86%]" },
-  { name: "HubSpot", pos: "right-[38%] top-[82%]" },
-  { name: "Okta", pos: "right-[4%] top-[38%]" },
+  { name: "Google", slug: "google", pos: "left-[6%] top-[16%]" },
+  { name: "GitHub", slug: "github", pos: "right-[8%] top-[10%]" },
+  { name: "Notion", slug: "notion", pos: "left-[42%] top-[2%]" },
+  { name: "Jira", slug: "jira", pos: "left-[30%] top-[86%]" },
+  { name: "Figma", slug: "figma", pos: "left-[6%] top-[16%]" },
+  { name: "HubSpot", slug: "hubspot", pos: "right-[38%] top-[82%]" },
+  { name: "Zapier", slug: "zapier", pos: "right-[4%] top-[38%]" },
+  { name: "Okta", slug: "okta", pos: "right-[16%] top-[58%]" },
 ];
+
+function BrandLogo({ slug, name, size = 20 }: { slug: string; name: string; size?: number }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`https://cdn.simpleicons.org/${slug}`}
+      alt={name}
+      loading="lazy"
+      width={size}
+      height={size}
+      className="object-contain"
+      style={{ width: size, height: size }}
+    />
+  );
+}
 
 /** Desktop: constellation around the OrinexSoft hub. Mobile: simple grid. */
 export default function Integrations() {
@@ -25,15 +41,15 @@ export default function Integrations() {
             OrinexSoft syncs data across 200+ tools in both directions, so when a
             deal closes in Salesforce, finance and operations already know.
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-violet px-7 py-3.5 text-[15px] font-semibold text-white transition-all hover:bg-violet hover:shadow-[0_0_36px_rgba(108,92,231,0.45)] hover:ring-2 hover:ring-violet-soft"
           >
             Try for free
             <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </Reveal>
 
         {/* Mobile grid — also the screen-reader source of truth */}
@@ -42,10 +58,10 @@ export default function Integrations() {
             {TOOLS.map((t) => (
               <span
                 key={t.name}
-                className="flex h-14 flex-col items-center justify-center rounded-2xl border border-navy/10 bg-white text-[9px] font-medium text-muted shadow-sm"
+                className="flex h-14 flex-col items-center justify-center gap-1 rounded-2xl border border-navy/10 bg-white text-[9px] font-medium text-muted shadow-sm"
               >
-                <span className="font-display text-[15px] font-bold text-navy">{t.name[0]}</span>
-                <span className="mt-0.5">{t.name}</span>
+                <BrandLogo slug={t.slug} name={t.name} size={16} />
+                <span>{t.name}</span>
               </span>
             ))}
           </div>
@@ -71,8 +87,8 @@ export default function Integrations() {
                 key={t.name}
                 className={`absolute ${t.pos} inline-flex items-center gap-2 rounded-2xl border border-navy/10 bg-white px-4 py-3 text-[13px] font-medium text-muted shadow-sm transition-colors hover:border-navy/30 hover:text-navy`}
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-navy/10 font-display text-[11px] font-bold text-navy">
-                  {t.name[0]}
+                <span className="flex h-6 w-6 items-center justify-center">
+                  <BrandLogo slug={t.slug} name={t.name} size={18} />
                 </span>
                 {t.name}
               </span>
