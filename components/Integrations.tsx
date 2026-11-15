@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 const TOOLS = [
@@ -78,33 +79,15 @@ export default function Integrations() {
             ))}
 
             {/* Hub */}
-            <span className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-3xl border border-violet/40 bg-navy shadow-[0_0_60px_rgba(108,92,231,0.35)]">
-              <svg viewBox="0 0 64 64" className="h-9 w-9">
-                <defs>
-                  <linearGradient id="hub-o" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stopColor="#C45CF7" />
-                    <stop offset="0.55" stopColor="#7C4FF0" />
-                    <stop offset="1" stopColor="#4F3AE8" />
-                  </linearGradient>
-                  <linearGradient id="hub-x" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stopColor="#A55EF6" />
-                    <stop offset="1" stopColor="#4633E6" />
-                  </linearGradient>
-                  <mask id="hub-hole">
-                    <rect width="64" height="64" fill="white" />
-                    <circle cx="21" cy="34" r="7.2" fill="black" />
-                  </mask>
-                </defs>
-                <g stroke="url(#hub-x)" strokeWidth="11" fill="none">
-                  <path d="M38 9.5 L59.5 53.5" />
-                  <path d="M59.5 9.5 L38 53.5" />
-                </g>
-                <g opacity="0.32" transform="translate(2.5 2.5)">
-                  <circle cx="21" cy="34" r="16.5" fill="#0B1020" mask="url(#hub-hole)" />
-                </g>
-                <circle cx="21" cy="34" r="16.5" fill="url(#hub-o)" mask="url(#hub-hole)" />
-              </svg>
-              <span className="font-display mt-1.5 text-[11px] font-bold tracking-[0.14em] text-white">ORINEXSOFT</span>
+            <span className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-3xl border border-violet/40 bg-navy shadow-[0_0_60px_rgba(108,92,231,0.35)]">
+              <Image
+                src="/logo-mark.png"
+                alt="OrinexSoft mark"
+                width={720}
+                height={364}
+                className="h-9 w-auto"
+              />
+              <span className="font-display mt-2 text-[11px] font-bold tracking-[0.14em] text-white">ORINEXSOFT</span>
             </span>
           </div>
         </Reveal>
