@@ -31,7 +31,7 @@ const PRINCIPLES = [
 export default function Philosophy() {
   return (
     <section id="philosophy" className="border-t border-line bg-soft" aria-labelledby="philosophy-heading">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+      <div className="container-x py-20 sm:py-24">
         <Reveal>
           <p className="text-[13px] font-semibold text-violet">Engineering philosophy</p>
           <h2

@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 export default function FinalCTA() {
   return (
     <section className="bg-deep" aria-labelledby="cta-heading">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+      <div className="container-x py-20 sm:py-24">
         <Reveal>
           <div className="max-w-2xl">
             <p className="text-[13px] font-semibold text-violet-soft">Get in touch</p>

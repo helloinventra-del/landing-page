@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 export default function About() {
   return (
     <section id="about" className="border-t border-line bg-soft" aria-labelledby="about-heading">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div className="container-x grid gap-10 py-20 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
           <h2
             id="about-heading"

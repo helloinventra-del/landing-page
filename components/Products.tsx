@@ -1,11 +1,11 @@
 import Link from "next/link";
-import PreviewFrame from "./PreviewFrame";
+import InterfaceSketch from "./InterfaceSketch";
 import Reveal from "./Reveal";
 
 export default function Products() {
   return (
     <section id="products" className="border-t border-line bg-white" aria-labelledby="products-heading">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+      <div className="container-x py-20 sm:py-24">
         <Reveal>
           <p className="text-[13px] font-semibold text-violet">Products</p>
           <h2
@@ -24,12 +24,17 @@ export default function Products() {
         {/* Featured product — in development */}
         <Reveal delay={80}>
           <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr]">
-            <PreviewFrame label="Interface preview · in development" className="bg-soft/40" />
+            <InterfaceSketch module="Operations" />
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-soft px-3 py-1 text-[12px] font-semibold text-muted">
-                <span className="h-1.5 w-1.5 rounded-full bg-violet" />
-                In development
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-line bg-soft px-3 py-1 text-[12px] font-semibold text-navy">
+                  Operations platform
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-[12px] font-semibold text-muted">
+                  <span className="h-1.5 w-1.5 rounded-full bg-violet" />
+                  In development
+                </span>
+              </div>
               <h3 className="font-display mt-4 text-2xl font-bold text-navy">
                 OrinexSoft&apos;s first product
               </h3>
@@ -52,10 +57,10 @@ export default function Products() {
         </Reveal>
 
         {/* Early-stage slots — honest placeholders, not invented launches */}
-        <div className="mt-10 border-t border-line">
+        <div className="mt-14 border-t border-line">
           <Reveal delay={80}>
-            <div className="grid gap-6 border-b border-line py-8 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10">
-              <span className="font-display text-[13px] font-bold tracking-[0.16em] text-muted">
+            <div className="grid gap-5 border-b border-line py-8 sm:grid-cols-[44px_1fr_auto] sm:items-center sm:gap-8">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-soft font-display text-[14px] font-bold text-muted">
                 02
               </span>
               <div>
@@ -79,8 +84,8 @@ export default function Products() {
             </div>
           </Reveal>
           <Reveal delay={140}>
-            <div className="grid gap-6 border-b border-line py-8 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10">
-              <span className="font-display text-[13px] font-bold tracking-[0.16em] text-muted">
+            <div className="grid gap-5 border-b border-line py-8 sm:grid-cols-[44px_1fr_auto] sm:items-center sm:gap-8">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-soft font-display text-[14px] font-bold text-muted">
                 03
               </span>
               <div>

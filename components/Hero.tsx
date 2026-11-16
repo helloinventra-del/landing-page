@@ -1,12 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import WaveMesh from "@/components/ui/wave-mesh";
+import InterfaceSketch from "./InterfaceSketch";
 import PreviewFrame from "./PreviewFrame";
 import Reveal from "./Reveal";
 
+/* Stable reference: a new array per render would restart the canvas effect. */
+const WAVE_COLORS: [string, string, string] = ["#FFFFFF", "#9AA3B6", "#6655E8"];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-white">
-      <div className="pt-12 sm:pt-16 lg:pt-20">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 pb-20 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-10 lg:pb-28">
+    <WaveMesh colors={WAVE_COLORS} crests className="relative overflow-hidden">
+      <section className="pt-12 sm:pt-16 lg:pt-20">
+        <div className="container-x grid gap-14 pb-20 sm:pt-2 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-10 lg:pb-28">
           {/* Copy */}
           <div className="max-w-xl">
             <h1 className="font-display text-[40px] font-bold leading-[1.06] tracking-tight text-navy sm:text-[56px]">
@@ -35,17 +42,26 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Layered interface previews — clearly marked, not a launched product */}
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none" aria-hidden="true">
-            <PreviewFrame
-              label="Interface preview"
-              className="absolute -left-4 top-6 w-[92%] -rotate-1 opacity-70"
-              compact
-            />
-            <PreviewFrame label="Interface preview · in development" className="relative ml-auto w-[88%]" />
-          </div>
+          {/* Product ecosystem composition */}
+          <Reveal delay={120}>
+            <div className="relative mx-auto w-full max-w-lg lg:max-w-none" aria-hidden="true">
+              {/* satellite module panel */}
+              <div className="absolute -left-2 top-4 w-[46%] opacity-90 sm:-left-6 sm:w-[42%]">
+                <InterfaceSketch module="Automation" />
+              </div>
+              {/* main interface sketch */}
+              <div className="relative ml-auto w-[86%]">
+                <InterfaceSketch module="Operations" />
+              </div>
+              {/* connecting label */}
+              <span className="absolute -bottom-5 right-6 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-[11px] font-semibold text-navy shadow-[0_4px_14px_rgba(16,19,34,0.10)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet" />
+                One platform · every product
+              </span>
+            </div>
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </WaveMesh>
   );
 }

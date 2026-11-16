@@ -3,7 +3,6 @@ import { Inter, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
-import ChatButton from "@/components/ChatButton";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,7 +58,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${manrope.variable}`}
     >
-      <body className="bg-white font-sans text-navy antialiased">
+      <body
+        suppressHydrationWarning
+        className="bg-white font-sans text-navy antialiased"
+      >
         {/* Gates scroll-reveal hiding behind JS availability */}
         <script
           dangerouslySetInnerHTML={{
@@ -82,7 +84,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyCTA />
-        <ChatButton />
       </body>
     </html>
   );

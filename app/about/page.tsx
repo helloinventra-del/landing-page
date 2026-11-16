@@ -36,7 +36,7 @@ export default function AboutPage() {
       />
 
       <section className="px-5 pb-16 sm:px-8">
-        <div className="mx-auto max-w-7xl">
+        <div className="container-x">
           <Reveal>
             <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
               {PILLARS.map((p) => (
@@ -51,7 +51,7 @@ export default function AboutPage() {
       </section>
 
       <section className="px-5 pb-16 sm:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="container-x grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="relative h-72 w-full overflow-hidden rounded-2xl border border-line sm:h-80">
               <Image
