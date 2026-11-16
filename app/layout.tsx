@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
@@ -12,39 +12,32 @@ const inter = Inter({
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-manrope",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://helloinventra-del.github.io/landing-page"),
   title: {
-    default: "OrinexSoft — The operations platform that runs itself",
+    default: "OrinexSoft — Building what's next.",
     template: "%s — OrinexSoft",
   },
   description:
-    "OrinexSoft builds AI-driven systems, enterprise software, and business automation for companies that scale. Intelligent Technology | Business Automation | Enterprise Solutions | Scalable Systems | Future Ready.",
-  keywords: [
-    "Intelligent Technology",
-    "Business Automation",
-    "Enterprise Solutions",
-    "Scalable Systems",
-    "Future Ready",
-  ],
+    "OrinexSoft is a product-driven technology company. We build intelligent software, digital products, and platforms that turn complex challenges into meaningful solutions.",
   openGraph: {
-    title: "OrinexSoft — The operations platform that runs itself",
+    title: "OrinexSoft — Building what's next.",
     description:
-      "Enterprise software, AI-driven automation, and data intelligence in one platform. Live in a week, measured from day one.",
+      "Technology products. Intelligent software. Digital platforms. Built by OrinexSoft.",
     siteName: "OrinexSoft",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "OrinexSoft",
+    title: "OrinexSoft — Building what's next.",
     description:
-      "Enterprise software, AI-driven automation, and data intelligence in one platform.",
+      "OrinexSoft is a product-driven technology company building intelligent software and digital platforms.",
   },
 };
 
@@ -54,13 +47,7 @@ const JSON_LD = {
   name: "OrinexSoft",
   url: "https://helloinventra-del.github.io/landing-page",
   description:
-    "Intelligent technology company building scalable digital solutions, enterprise software, and AI-driven business automation.",
-  knowsAbout: [
-    "Intelligent Technology",
-    "Business Automation",
-    "Enterprise Solutions",
-    "Scalable Systems",
-  ],
+    "Product-driven technology company building intelligent software, digital products, and platforms.",
 };
 
 export default function RootLayout({
@@ -70,9 +57,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jakarta.variable}`}
+      className={`${inter.variable} ${manrope.variable}`}
     >
-      <body className="bg-soft font-sans text-navy antialiased">
+      <body className="bg-white font-sans text-navy antialiased">
         {/* Gates scroll-reveal hiding behind JS availability */}
         <script
           dangerouslySetInnerHTML={{

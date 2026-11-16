@@ -5,25 +5,14 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const NAV_LINKS = [
-  { label: "Product", href: "/#product" },
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Case Studies", href: "/#stories" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Products", href: "/#products" },
+  { label: "Technology", href: "/#technology" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [barOpen, setBarOpen] = useState(true);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Escape closes the menu; lock page scroll while it is open
   useEffect(() => {
@@ -40,83 +29,40 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? "border-b border-navy/10 bg-soft/85 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      {/* Announcement bar — collapses on scroll */}
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          barOpen && !scrolled ? "max-h-10" : "max-h-0"
-        }`}
-      >
-        <div className="bg-navy px-4 py-2.5 text-center">
-          <Link
-            href="/#product"
-            className="text-[12.5px] font-medium text-white"
-            onClick={() => setBarOpen(false)}
-          >
-            Platform 3.0 is live: AI agents now run inside every workflow.{" "}
-            <span className="font-semibold text-violet-soft underline decoration-2 underline-offset-2">
-              See what&apos;s new
-            </span>
-          </Link>
-        </div>
-      </div>
-
-      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" aria-label="OrinexSoft — home">
+    <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-md">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+        <Link href="/" aria-label="OrinexSoft — home" className="shrink-0">
           <Logo light={false} id="nav" />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="rounded-full px-4 py-2 text-[14px] font-medium text-muted transition-colors hover:bg-navy/5 hover:text-navy"
+              className="rounded-lg px-3.5 py-2 text-[14px] font-medium text-muted transition-colors hover:bg-soft hover:text-navy"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="#"
-            className="rounded-full border border-navy/15 px-5 py-2.5 text-[14px] font-semibold text-navy transition-colors hover:border-navy/30 hover:bg-navy/5"
-          >
-            Login
-          </a>
+        <div className="hidden items-center gap-3 md:flex">
           <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-violet px-5 py-2.5 text-[14px] font-semibold text-white transition-all hover:bg-violet hover:shadow-[0_0_28px_rgba(108,92,231,0.45)] hover:ring-2 hover:ring-violet-soft"
+            href="/#products"
+            className="rounded-lg bg-violet px-4 py-2 text-[14px] font-semibold text-white transition-colors hover:bg-violet-soft"
           >
-            Try for free
-            <svg
-              viewBox="0 0 16 16"
-              className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            Explore Products
           </Link>
         </div>
 
-        {/* Mobile hamburger — 44px tap target */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-navy/15 text-navy transition-colors hover:bg-navy/5 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-line text-navy transition-colors hover:bg-soft md:hidden"
         >
           <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
             {open ? (
@@ -128,11 +74,10 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-navy/10 bg-soft/95 px-5 pb-6 pt-3 backdrop-blur-xl lg:hidden"
+          className="border-t border-line bg-white px-5 pb-6 pt-3 md:hidden"
         >
           <div className="flex flex-col">
             {NAV_LINKS.map((link) => (
@@ -140,28 +85,19 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-3 py-3 text-[15px] font-medium text-muted transition-colors hover:bg-navy/5 hover:text-navy"
+                className="rounded-lg px-3 py-3 text-[15px] font-medium text-muted transition-colors hover:bg-soft hover:text-navy"
               >
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="mt-4 flex gap-3">
-            <a
-              href="#"
-              onClick={() => setOpen(false)}
-              className="flex-1 rounded-full border border-navy/15 px-5 py-3 text-center text-[14px] font-semibold text-navy"
-            >
-              Login
-            </a>
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="flex-1 rounded-full bg-violet px-5 py-3 text-center text-[14px] font-semibold text-white"
-            >
-              Try for free
-            </Link>
-          </div>
+          <Link
+            href="/#products"
+            onClick={() => setOpen(false)}
+            className="mt-4 block rounded-lg bg-violet px-4 py-3 text-center text-[14px] font-semibold text-white"
+          >
+            Explore Products
+          </Link>
         </div>
       )}
     </header>

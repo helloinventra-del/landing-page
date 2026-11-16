@@ -5,30 +5,24 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — OrinexSoft",
+  title: "About",
   description:
-    "OrinexSoft builds intelligent operations software: enterprise systems, AI-driven automation, and data intelligence for companies that scale.",
+    "OrinexSoft is a product-driven technology company. We build intelligent software, digital products, and platforms that solve real problems.",
 };
 
 const PILLARS = [
   {
-    title: "Intelligent systems",
-    body: "Software that observes, decides, and acts. Our AI agents run inside customer workflows, with every decision logged and reviewable.",
+    title: "Product-first",
+    body: "We build and own products. Services exist to fund and sharpen them, never to replace them.",
   },
   {
-    title: "Business automation",
-    body: "We remove the approval chains, manual routing, and status meetings that slow companies down. The work moves itself; people steer it.",
+    title: "Problem-first",
+    body: "Every product starts with a written problem statement from a real workflow, not a market trend.",
   },
   {
-    title: "Scalable foundations",
-    body: "One customer runs ten workflows; another runs ten thousand. The same infrastructure serves both, and nothing gets rebuilt in between.",
+    title: "Engineering-first",
+    body: "Decisions are documented, code is reviewed, and scope is defended. The craft is the company.",
   },
-];
-
-const STATS = [
-  { v: "150+", l: "companies run operations on OrinexSoft" },
-  { v: "99.99%", l: "uptime across our infrastructure" },
-  { v: "41,209", l: "hours automated last quarter" },
 ];
 
 export default function AboutPage() {
@@ -36,49 +30,19 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="We build the software"
-        highlight="that runs the business."
-        sub="OrinexSoft is an intelligent technology company. We build scalable digital solutions, enterprise software, and AI-driven automation under one roof."
+        title="Driven by ideas."
+        highlight="Defined by engineering."
+        sub="OrinexSoft is a product-driven technology company. We build intelligent software, digital products, and platforms designed to solve real-world problems."
       />
 
-      <section className="px-5 pb-14 sm:px-8">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <div className="h-full rounded-3xl border border-navy/10 bg-white p-7 shadow-sm">
-                <h2 className="font-display text-lg font-bold text-navy">{p.title}</h2>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-muted">{p.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-5 pb-14 sm:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="px-5 pb-16 sm:px-8">
+        <div className="mx-auto max-w-7xl">
           <Reveal>
-            <div className="relative h-64 w-full overflow-hidden rounded-3xl sm:h-80">
-              <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=75"
-                alt="The OrinexSoft team working together around a shared desk"
-                fill
-                sizes="(max-width: 768px) 100vw, 1152px"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-navy/15" />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="px-5 pb-14 sm:px-8">
-        <div className="mx-auto max-w-6xl">
-          <Reveal>
-            <div className="grid gap-5 rounded-3xl border border-white/10 bg-navy p-8 sm:grid-cols-3 sm:p-10">
-              {STATS.map((s) => (
-                <div key={s.v} className="text-center">
-                  <p className="font-display text-3xl font-bold text-violet-soft">{s.v}</p>
-                  <p className="mt-1.5 text-[13px] leading-snug text-cool">{s.l}</p>
+            <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+              {PILLARS.map((p) => (
+                <div key={p.title} className="bg-white p-7">
+                  <h2 className="text-[15.5px] font-bold text-navy">{p.title}</h2>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-muted">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -86,21 +50,63 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-20 sm:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="px-5 pb-16 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-navy">
-              See it on your own operations
+            <div className="relative h-72 w-full overflow-hidden rounded-2xl border border-line sm:h-80">
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=75"
+                alt="The OrinexSoft team working together around a shared desk"
+                fill
+                sizes="(max-width: 1024px) 100vw, 560px"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="flex h-full flex-col justify-center">
+              <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+                Why we exist
+              </h2>
+              <div className="mt-5 space-y-5 text-[15.5px] leading-relaxed text-muted">
+                <p>
+                  Software is too often built backwards. Products get shaped
+                  around org charts and feature lists instead of the problem
+                  itself, and the complexity lands on the people who can least
+                  afford it.
+                </p>
+                <p>
+                  We work the other way around. We start from the problem, stay
+                  small until we understand it, and let engineering decisions
+                  follow from what the product needs to do.
+                </p>
+                <p>
+                  Our long-term vision is a portfolio of products that share one
+                  standard: each one makes a specific kind of work measurably
+                  better, and each one is built to last.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-soft">
+        <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-20">
+          <Reveal>
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">
+              Building what&apos;s next, in the open.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[15.5px] leading-relaxed text-muted">
-              Bring one real process to a 30-minute walkthrough and we&apos;ll set
-              it up live. No slides.
+              Our first product is in active development. If you want to follow
+              the build or bring us a problem worth solving, we would like to
+              hear from you.
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center rounded-full bg-violet px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-violet hover:shadow-[0_0_36px_rgba(108,92,231,0.45)] hover:ring-2 hover:ring-violet-soft"
+              className="mt-8 inline-flex items-center rounded-lg bg-violet px-6 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-violet-soft"
             >
-              Book a walkthrough
+              Get in touch
             </Link>
           </Reveal>
         </div>

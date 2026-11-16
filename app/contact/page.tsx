@@ -4,19 +4,37 @@ import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact — OrinexSoft",
+  title: "Contact",
   description:
-    "Book a 30-minute walkthrough of OrinexSoft on your own operations, start a free trial, or talk to sales. A solutions engineer replies within one business day.",
+    "Have an idea, a challenge, or a vision for a new product? Tell OrinexSoft what you are working on. A real engineer replies within one business day.",
 };
+
+const NEXT_STEPS = [
+  {
+    n: "1",
+    t: "We reply within one business day",
+    d: "An engineer reads your message and answers directly. No autoresponder chains.",
+  },
+  {
+    n: "2",
+    t: "A focused conversation",
+    d: "We discuss the problem, the context, and whether OrinexSoft is the right fit to build it.",
+  },
+  {
+    n: "3",
+    t: "A written plan, if we proceed",
+    d: "Scope, timeline, and success metrics before any commitment is made.",
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
         eyebrow="Contact"
-        title="See your own operation"
-        highlight="running on OrinexSoft."
-        sub="Tell us which process hurts the most. We'll show it automated live, on your data, in 30 minutes."
+        title="Have an idea, a challenge,"
+        highlight="or a vision?"
+        sub="Tell us what you are working on. If OrinexSoft can build it better, we will show you exactly how."
       />
 
       <section className="px-5 pb-24 sm:px-8">
@@ -25,30 +43,14 @@ export default function ContactPage() {
             <ContactForm />
           </Reveal>
           <Reveal delay={120}>
-            <div className="rounded-3xl border border-navy/10 bg-white p-7 shadow-sm">
+            <div className="rounded-2xl border border-line bg-white p-7 shadow-[0_1px_2px_rgba(16,19,34,0.05)]">
               <h2 className="font-display text-lg font-bold text-navy">
                 What happens next
               </h2>
               <ol className="mt-5 space-y-5">
-                {[
-                  {
-                    n: "1",
-                    t: "We reply within one business day",
-                    d: "A solutions engineer answers, never an autoresponder chain.",
-                  },
-                  {
-                    n: "2",
-                    t: "30-minute walkthrough on your data",
-                    d: "We set up one of your real processes live on OrinexSoft infrastructure.",
-                  },
-                  {
-                    n: "3",
-                    t: "Pilot plan in writing",
-                    d: "Scope, timeline, and success metrics before you commit to anything.",
-                  },
-                ].map((s) => (
+                {NEXT_STEPS.map((s) => (
                   <li key={s.n} className="flex gap-3.5">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet/15 font-display text-[13px] font-bold text-violet">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line bg-soft font-display text-[13px] font-bold text-navy">
                       {s.n}
                     </span>
                     <span>
@@ -58,13 +60,11 @@ export default function ContactPage() {
                   </li>
                 ))}
               </ol>
-              <div className="mt-7 border-t border-navy/10 pt-5">
-                <p className="text-[13px] text-muted">
-                  Prefer email directly?
-                </p>
+              <div className="mt-7 border-t border-line pt-5">
+                <p className="text-[13px] text-muted">Prefer email directly?</p>
                 <a
                   href="mailto:sales@orinexsoft.com"
-                  className="mt-1 inline-block text-[14px] font-semibold text-violet underline decoration-2 underline-offset-4"
+                  className="mt-1 inline-block text-[14px] font-semibold text-violet underline decoration-violet/40 decoration-2 underline-offset-4"
                 >
                   sales@orinexsoft.com
                 </a>

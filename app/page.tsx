@@ -1,27 +1,19 @@
 import Hero from "@/components/Hero";
-import Showcase from "@/components/Showcase";
-import HowItWorks from "@/components/HowItWorks";
-import LogoCloud from "@/components/LogoCloud";
-import SecurityStrip from "@/components/SecurityStrip";
-import FeatureRows from "@/components/FeatureRows";
-import Testimonials from "@/components/Testimonials";
-import Integrations from "@/components/Integrations";
-import Stories from "@/components/Stories";
-import CTA from "@/components/CTA";
+import Products from "@/components/Products";
+import About from "@/components/About";
+import Technology from "@/components/Technology";
+import Philosophy from "@/components/Philosophy";
+import FinalCTA from "@/components/FinalCTA";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Showcase />
-      <HowItWorks />
-      <LogoCloud />
-      <SecurityStrip />
-      <FeatureRows />
-      <Testimonials />
-      <Integrations />
-      <Stories />
-      <CTA />
+      <Products />
+      <About />
+      <Technology />
+      <Philosophy />
+      <FinalCTA />
     </>
   );
 }
