@@ -1,16 +1,11 @@
-"use client";
-
 import Link from "next/link";
-import WaveMesh from "@/components/ui/wave-mesh";
 import PreviewFrame from "./PreviewFrame";
-
-/* Stable reference: a new array per render would restart the canvas effect. */
-const WAVE_COLORS: [string, string, string] = ["#FFFFFF", "#9AA3B6", "#6655E8"];
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <WaveMesh colors={WAVE_COLORS} crests className="relative overflow-hidden border-b border-line">
-      <section className="pt-12 sm:pt-16 lg:pt-20">
+    <section className="relative overflow-hidden border-b border-line bg-white">
+      <div className="pt-12 sm:pt-16 lg:pt-20">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 pb-20 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-10 lg:pb-28">
           {/* Copy */}
           <div className="max-w-xl">
@@ -50,7 +45,7 @@ export default function Hero() {
             <PreviewFrame label="Interface preview · in development" className="relative ml-auto w-[88%]" />
           </div>
         </div>
-      </section>
-    </WaveMesh>
+      </div>
+    </section>
   );
 }
