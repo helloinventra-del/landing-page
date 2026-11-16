@@ -20,29 +20,8 @@ const ORBIT_ICONS = [
 
 export default function HeroSection06() {
   return (
-    <div className="relative overflow-hidden border-b border-line bg-gradient-to-b from-soft via-white to-white">
-      {/* orbiting brand glyphs — desktop only, decorative */}
-      <div
-        className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex"
-        aria-hidden="true"
-      >
-        <OrbitingCircles radius={250} speed={0.6} iconSize={44} className="border border-line bg-white shadow-sm text-violet">
-          {ORBIT_ICONS.slice(0, 4).map((d, i) => (
-            <svg key={i} viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d={d} />
-            </svg>
-          ))}
-        </OrbitingCircles>
-        <OrbitingCircles radius={380} speed={0.35} reverse iconSize={38} className="border border-line bg-white/80 shadow-sm text-muted">
-          {ORBIT_ICONS.slice(4).map((d, i) => (
-            <svg key={i} viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d={d} />
-            </svg>
-          ))}
-        </OrbitingCircles>
-      </div>
-
-      <div className="container-x relative flex flex-col items-center justify-center gap-y-8 pt-16 pb-20 sm:pt-20 sm:pb-24">
+    <div className="relative overflow-hidden border-b border-line bg-white">
+      <div className="container-x relative flex flex-col items-center justify-center gap-y-8 pt-16 pb-14 sm:pt-20 sm:pb-16">
         {/* badge */}
         <Link
           href="/#products"
@@ -58,7 +37,7 @@ export default function HeroSection06() {
         </Link>
 
         {/* headline */}
-        <h1 className="max-w-4xl text-center font-display text-[40px] font-bold !leading-[1.06] tracking-tight text-navy sm:text-[52px] lg:text-[56px]">
+        <h1 className="max-w-4xl text-center font-display text-[40px] font-bold leading-[1.06]! tracking-tight text-navy sm:text-[52px] lg:text-[56px]">
           Building technology for a smarter{" "}
           <span className="text-violet">tomorrow.</span>
         </h1>
@@ -97,6 +76,27 @@ export default function HeroSection06() {
             className="absolute top-1/2 left-1/2 -z-10 h-1/3 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet/25 blur-[6rem] animate-image-glow"
             aria-hidden="true"
           />
+          {/* orbiting brand glyphs — desktop only, decorative; anchored to the
+              dashboard so chips never cross the headline copy */}
+          <div
+            className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex"
+            aria-hidden="true"
+          >
+            <OrbitingCircles radius={200} speed={0.6} iconSize={40} className="border border-line bg-white shadow-sm text-violet">
+              {ORBIT_ICONS.slice(0, 4).map((d, i) => (
+                <svg key={i} viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={d} />
+                </svg>
+              ))}
+            </OrbitingCircles>
+            <OrbitingCircles radius={300} speed={0.35} reverse iconSize={34} className="border border-line bg-white/80 shadow-sm text-muted">
+              {ORBIT_ICONS.slice(4).map((d, i) => (
+                <svg key={i} viewBox="0 0 24 24" className="h-[17px] w-[17px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d={d} />
+                </svg>
+              ))}
+            </OrbitingCircles>
+          </div>
           <div className="rounded-xl border border-line p-2 backdrop-blur-sm sm:rounded-2xl sm:p-2.5">
             <div className="rounded-lg border border-line bg-white sm:rounded-xl">
               <DashboardWindow className="border-0 shadow-none" />
