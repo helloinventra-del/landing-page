@@ -19,23 +19,14 @@ export default function Logo({
         width={720}
         height={364}
         priority
-        className="h-9 w-auto"
+        className="h-7 w-auto"
       />
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-display text-[15.5px] font-bold tracking-[0.08em] ${
-            light ? "text-white" : "text-navy"
-          }`}
-        >
-          ORINEXSOFT
-        </span>
-        <span
-          className={`mt-1 text-[9px] font-semibold tracking-[0.28em] ${
-            light ? "text-cool" : "text-muted"
-          }`}
-        >
-          TECHNOLOGIES
-        </span>
+      <span
+        className={`font-display text-[15px] font-extrabold tracking-[0.02em] ${
+          light ? "text-white" : "text-navy"
+        }`}
+      >
+        ORINEXSOFT
       </span>
     </span>
   );

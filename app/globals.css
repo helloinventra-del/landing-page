@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* OrinexSoft design tokens */
-  --color-navy: #111827; /* primary text */
-  --color-deep: #101322; /* dark contrast sections */
-  --color-card: #101322; /* dark surfaces */
-  --color-midnight: #101322;
-  --color-violet: #6655e8; /* brand accent — used sparingly */
-  --color-violet-soft: #7b6bee; /* accent hover */
+  /* OrinexSoft design tokens — reference palette */
+  --color-navy: #111426; /* primary text */
+  --color-deep: #111224; /* dark CTA band */
+  --color-card: #111224;
+  --color-midnight: #111224;
+  --color-violet: #6945f5; /* primary purple */
+  --color-violet-soft: #8a68ff; /* secondary purple */
+  --color-lavender: #f0ecff; /* light purple surface */
   --color-cool: #667085; /* secondary text */
   --color-muted: #667085;
-  --color-soft: #f5f6fa; /* secondary background */
-  --color-line: #e5e7eb; /* subtle borders */
+  --color-soft: #f8f8fc; /* light background */
+  --color-line: #e9e9f1; /* borders */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, sans-serif;
@@ -19,17 +20,6 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Shared content container — 1200px max on large desktop */
-@utility container-x {
-  margin-inline: auto;
-  width: 100%;
-  max-width: 1200px;
-  padding-inline: 20px;
-  @media (min-width: 640px) {
-    padding-inline: 32px;
-  }
 }
 
 /* Hide scrollbars while keeping pages scrollable */
@@ -49,8 +39,8 @@ body {
 }
 
 ::selection {
-  background-color: rgb(102 85 232 / 0.14);
-  color: #111827;
+  background-color: rgb(105 69 245 / 0.14);
+  color: #111426;
 }
 
 /* Brand focus ring */
@@ -58,6 +48,17 @@ body {
   outline: 2px solid var(--color-violet);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Shared content container — 1200px max on large desktop */
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 20px;
+  @media (min-width: 640px) {
+    padding-inline: 32px;
+  }
 }
 
 /* Scroll reveal — hidden only when JS is available */

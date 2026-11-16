@@ -1,61 +1,72 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const PRINCIPLES = [
   {
     n: "01",
     title: "Build with purpose",
-    body: "Every feature starts as a written problem statement. If the problem is not clear, the feature does not get built.",
+    body: "Solve real problems, create real value.",
   },
   {
     n: "02",
     title: "Engineer for scale",
-    body: "We design for the load we expect and the load we would hate to turn away. Architecture decisions are documented, not improvised.",
+    body: "Build for what's next, not just what's now.",
   },
   {
     n: "03",
     title: "Make complexity simple",
-    body: "Complex systems are allowed behind the scenes. The surface a person touches stays small, legible, and honest.",
-  },
-  {
-    n: "04",
-    title: "Design around people",
-    body: "Interfaces are judged by the second run, not the first demo. If a task needs a tutorial, the task needs redesign.",
-  },
-  {
-    n: "05",
-    title: "Innovate responsibly",
-    body: "New technology is adopted when it makes a product measurably better, never for the launch note.",
+    body: "Turn complex ideas into elegant solutions.",
   },
 ];
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="border-t border-line bg-soft" aria-labelledby="philosophy-heading">
-      <div className="container-x py-20 sm:py-24">
+    <section id="philosophy" className="bg-white" aria-labelledby="philosophy-heading">
+      <div className="container-x grid gap-12 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
-          <p className="text-[13px] font-semibold text-violet">Engineering philosophy</p>
+          <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">
+            Our Philosophy
+          </p>
           <h2
             id="philosophy-heading"
-            className="font-display mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-navy sm:text-4xl"
+            className="font-display mt-3 text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
           >
             How we build.
           </h2>
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted">
+            We believe in building with purpose, engineering for scale, and
+            designing around people. Our approach blends innovation with
+            responsibility, always keeping the end user in mind.
+          </p>
+          <Link
+            href="/about"
+            className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet transition-colors hover:text-navy"
+          >
+            Learn more
+            <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </Reveal>
 
-        <div className="mt-12">
-          {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.n} delay={i * 50}>
-              <div className="grid gap-3 border-t border-line py-7 sm:grid-cols-[64px_240px_1fr] sm:gap-8 sm:py-8">
-                <span className="font-display text-[13px] font-bold tracking-[0.16em] text-muted">
+        <Reveal delay={120}>
+          <div>
+            {PRINCIPLES.map((p, i) => (
+              <div
+                key={p.n}
+                className={`flex items-start gap-5 py-5 ${i > 0 ? "border-t border-line" : ""}`}
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet text-[12px] font-bold text-white">
                   {p.n}
                 </span>
-                <h3 className="text-[16.5px] font-bold text-navy">{p.title}</h3>
-                <p className="max-w-2xl text-[15px] leading-relaxed text-muted">{p.body}</p>
+                <span>
+                  <span className="block text-[15.5px] font-bold text-navy">{p.title}</span>
+                  <span className="mt-1 block text-[13.5px] leading-relaxed text-muted">{p.body}</span>
+                </span>
               </div>
-            </Reveal>
-          ))}
-          <div className="border-t border-line" />
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
