@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "NEXT_PHASE=phase-production-build next build",
+    "start": "NEXT_PHASE=phase-production-build next start",
+    "start:dev-cache": "next start"
   },
   "dependencies": {
     "next": "^15.5.0",
