@@ -1,71 +1,101 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 
-/* Workflow node-graph sketch for the OrinexFlow preview — decorative. */
-function WorkflowSketch() {
+/* Generated ecosystem artwork — a flow of connected service nodes across the
+   OrinexSoft platform. Pure SVG, brand palette, no fake data. */
+function EcosystemArt() {
   const nodes = [
-    { x: 24, y: 18, c: "#10B981" },
-    { x: 88, y: 10, c: "#6945F5" },
-    { x: 150, y: 26, c: "#8A68FF" },
-    { x: 60, y: 62, c: "#6945F5" },
-    { x: 130, y: 70, c: "#10B981" },
-    { x: 182, y: 52, c: "#38BDF8" },
+    { x: 150, y: 150 },
+    { x: 320, y: 110 },
+    { x: 480, y: 170 },
+    { x: 645, y: 105 },
+    { x: 810, y: 165 },
+    { x: 960, y: 115 },
   ];
-  const links = [
-    [0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [4, 5],
+  const curves = [
+    "M150 150 C 210 120, 260 104, 320 110",
+    "M320 110 C 380 118, 430 148, 480 170",
+    "M480 170 C 540 158, 590 116, 645 105",
+    "M645 105 C 710 112, 760 148, 810 165",
+    "M810 165 C 860 150, 910 128, 960 115",
+    "M150 150 C 240 210, 340 240, 480 232 S 760 210, 960 115",
   ];
   return (
-    <div className="overflow-hidden rounded-lg border border-line bg-white">
-      <div className="flex items-center gap-1.5 border-b border-line bg-soft px-3 py-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-line" />
-        <span className="h-1.5 w-1.5 rounded-full bg-line" />
-        <span className="h-1.5 w-1.5 rounded-full bg-line" />
-        <span className="ml-2 h-2 w-24 rounded bg-line/70" />
-      </div>
-      <div className="flex">
-        <div className="w-8 shrink-0 space-y-2 border-r border-line bg-deep p-2">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-2 w-full rounded-sm bg-white/10" />
-          ))}
-        </div>
-        <svg viewBox="0 0 210 92" className="h-full min-h-[120px] w-full bg-white" aria-hidden="true">
-          {links.map(([a, b], i) => (
-            <line
-              key={i}
-              x1={nodes[a].x}
-              y1={nodes[a].y}
-              x2={nodes[b].x}
-              y2={nodes[b].y}
-              stroke="rgb(105 69 245 / 0.35)"
-              strokeWidth="1.5"
-            />
-          ))}
-          {nodes.map((n, i) => (
-            <g key={i}>
-              <circle cx={n.x} cy={n.y} r="10" fill="white" stroke={n.c} strokeWidth="2" />
-              <circle cx={n.x} cy={n.y} r="4" fill={n.c} />
-            </g>
-          ))}
-        </svg>
-      </div>
-    </div>
+    <svg
+      viewBox="0 0 1120 380"
+      className="h-full w-full"
+      role="img"
+      aria-label="Illustration of OrinexSoft products connected as one platform ecosystem"
+    >
+      <defs>
+        <radialGradient id="eco-glow" cx="50%" cy="42%" r="60%">
+          <stop offset="0%" stopColor="#6842FF" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="#6842FF" stopOpacity="0" />
+        </radialGradient>
+        <pattern id="eco-dots" width="26" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="rgb(255 255 255 / 0.07)" />
+        </pattern>
+      </defs>
+
+      <rect width="1120" height="380" fill="url(#eco-dots)" />
+      <rect width="1120" height="380" fill="url(#eco-glow)" />
+
+      {/* connections */}
+      {curves.map((d, i) => (
+        <path key={i} d={d} fill="none" stroke="#6842FF" strokeOpacity={i === 5 ? 0.5 : 0.35} strokeWidth="1.6" />
+      ))}
+
+      {/* floating skeleton panels */}
+      <g>
+        <rect x="240" y="70" width="168" height="56" rx="10" fill="rgb(255 255 255 / 0.05)" stroke="rgb(255 255 255 / 0.10)" />
+        <rect x="254" y="84" width="64" height="6" rx="3" fill="rgb(255 255 255 / 0.16)" />
+        <rect x="254" y="98" width="96" height="6" rx="3" fill="rgb(255 255 255 / 0.09)" />
+      </g>
+      <g>
+        <rect x="700" y="236" width="168" height="56" rx="10" fill="rgb(255 255 255 / 0.05)" stroke="rgb(255 255 255 / 0.10)" />
+        <rect x="714" y="250" width="72" height="6" rx="3" fill="rgb(138 104 255 / 0.8)" />
+        <rect x="714" y="264" width="100" height="6" rx="3" fill="rgb(255 255 255 / 0.09)" />
+      </g>
+
+      {/* service nodes */}
+      {nodes.map((n, i) => (
+        <g key={i}>
+          <circle cx={n.x} cy={n.y} r="14" fill="#101322" stroke="#8A68FF" strokeWidth="2" />
+          <circle cx={n.x} cy={n.y} r="5" fill="#6842FF" />
+          {i % 2 === 0 && (
+            <circle cx={n.x} cy={n.y} r="22" fill="none" stroke="#8A68FF" strokeOpacity="0.3" />
+          )}
+        </g>
+      ))}
+    </svg>
   );
 }
 
-function ArrowCircle() {
-  return (
-    <span className="ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors group-hover:border-violet/40 group-hover:bg-lavender group-hover:text-violet">
-      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
+const PRODUCT_INDEX = [
+  {
+    name: "OrinexFlow",
+    area: "Operations automation",
+    status: "Live",
+    href: "/contact",
+  },
+  {
+    name: "OrinexAnalytics",
+    area: "Analytics & reporting",
+    status: "Beta",
+    href: "/contact",
+  },
+  {
+    name: "OrinexCloud",
+    area: "Cloud platform",
+    status: "Coming Soon",
+    href: "/contact",
+  },
+];
 
 export default function Products() {
   return (
     <section id="products" className="bg-white" aria-labelledby="products-heading">
-      <div className="container-x py-16 sm:py-20">
+      <div className="container-x py-20 sm:py-24">
         <Reveal>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -74,11 +104,11 @@ export default function Products() {
               </p>
               <h2
                 id="products-heading"
-                className="font-display mt-2.5 text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
+                className="font-display mt-3 max-w-2xl text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
               >
                 Products built to make a difference.
               </h2>
-              <p className="mt-3 max-w-xl text-[14.5px] leading-relaxed text-muted">
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted">
                 An ecosystem of products designed to solve real problems, from
                 productivity to automation and beyond.
               </p>
@@ -95,94 +125,46 @@ export default function Products() {
           </div>
         </Reveal>
 
-        <div className="mt-9 grid gap-4 lg:grid-cols-3">
-          {/* Featured: OrinexFlow */}
-          <Reveal className="lg:col-span-2">
-            <Link
-              href="/contact"
-              className="group block h-full rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,19,34,0.05)] transition-all hover:shadow-[0_16px_40px_rgba(17,18,36,0.10)] sm:p-6"
-            >
-              <div className="grid h-full items-center gap-6 sm:grid-cols-[0.9fr_1.1fr]">
-                <div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-lavender">
-                    <svg viewBox="0 0 24 24" className="h-5.5 w-5.5 text-violet" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ height: 22, width: 22 }}>
-                      <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" />
-                    </svg>
-                  </span>
-                  <div className="mt-4 flex items-center gap-2.5">
-                    <h3 className="font-display text-[19px] font-bold text-navy">OrinexFlow</h3>
-                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-600">
-                      Live
-                    </span>
-                  </div>
-                  <p className="mt-2 max-w-sm text-[14px] leading-relaxed text-muted">
-                    Automate your workflows and boost productivity with
-                    intelligent process automation.
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-violet">
-                    Explore OrinexFlow
-                    <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </div>
-                <WorkflowSketch />
-              </div>
-            </Link>
-          </Reveal>
-
-          {/* Stacked: OrinexAnalytics + OrinexCloud */}
-          <div className="flex flex-col gap-4">
-            <Reveal delay={80} className="flex-1">
-              <Link
-                href="/contact"
-                className="group flex h-full items-center gap-4 rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,19,34,0.05)] transition-all hover:shadow-[0_16px_40px_rgba(17,18,36,0.10)]"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-lavender">
-                  <svg viewBox="0 0 24 24" className="text-violet" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ height: 22, width: 22 }}>
-                    <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
-                  </svg>
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex flex-wrap items-center gap-2">
-                    <span className="font-display text-[16px] font-bold text-navy">OrinexAnalytics</span>
-                    <span className="rounded-full bg-lavender px-2 py-0.5 text-[10px] font-bold text-violet">
-                      Beta
-                    </span>
-                  </span>
-                  <span className="mt-1 block text-[13px] leading-relaxed text-muted">
-                    Turn data into insights with powerful analytics tools.
-                  </span>
-                </span>
-                <ArrowCircle />
-              </Link>
-            </Reveal>
-            <Reveal delay={140} className="flex-1">
-              <Link
-                href="/contact"
-                className="group flex h-full items-center gap-4 rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,19,34,0.05)] transition-all hover:shadow-[0_16px_40px_rgba(17,18,36,0.10)]"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-lavender">
-                  <svg viewBox="0 0 24 24" className="text-violet" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ height: 22, width: 22 }}>
-                    <path d="M17.5 19a4.5 4.5 0 000-9 6 6 0 00-11.6 1.6A4 4 0 007 19h10.5z" />
-                  </svg>
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="flex flex-wrap items-center gap-2">
-                    <span className="font-display text-[16px] font-bold text-navy">OrinexCloud</span>
-                    <span className="rounded-full border border-line bg-soft px-2 py-0.5 text-[10px] font-bold text-muted">
-                      Coming Soon
-                    </span>
-                  </span>
-                  <span className="mt-1 block text-[13px] leading-relaxed text-muted">
-                    Scale your ideas with our next-gen cloud platform.
-                  </span>
-                </span>
-                <ArrowCircle />
-              </Link>
-            </Reveal>
+        {/* Generated ecosystem artwork */}
+        <Reveal delay={100}>
+          <div className="mt-10 overflow-hidden rounded-2xl border border-navy/10 bg-deep">
+            <EcosystemArt />
           </div>
-        </div>
+        </Reveal>
+
+        {/* Minimal typographic product index */}
+        <Reveal delay={140}>
+          <div className="mt-2">
+            {PRODUCT_INDEX.map((p, i) => (
+              <div
+                key={p.name}
+                className={`grid items-baseline gap-2 py-6 sm:grid-cols-[1fr_auto_auto] sm:gap-8 ${
+                  i > 0 ? "border-t border-line" : ""
+                }`}
+              >
+                <div>
+                  <h3 className="text-[17px] font-bold text-navy transition-colors hover:text-violet">
+                    <Link href={p.href}>{p.name}</Link>
+                  </h3>
+                  <p className="mt-1 text-[13.5px] text-muted">{p.area}</p>
+                </div>
+                <span className="text-[12px] font-semibold text-muted sm:text-right">
+                  {p.status}
+                </span>
+                <Link
+                  href={p.href}
+                  className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-navy transition-colors hover:text-violet sm:justify-self-end"
+                >
+                  Explore
+                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
+            ))}
+            <div className="border-t border-line" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

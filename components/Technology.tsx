@@ -1,76 +1,134 @@
 import Reveal from "./Reveal";
 
+/* Generated capability-stack artwork — the OrinexSoft platform drawn as
+   layered foundation levels. Labels are real capability areas. */
+function StackArt() {
+  const layers = [
+    { label: "Products", w: 300, fill: "#6842FF", text: "#FFFFFF" },
+    { label: "Intelligence", w: 330, fill: "#8A68FF", text: "#FFFFFF" },
+    { label: "Automation", w: 360, fill: "#B7ABFA", text: "#111225" },
+    { label: "Data", w: 390, fill: "#D9D9F5", text: "#111225" },
+    { label: "Infrastructure", w: 420, fill: "#E7E8F1", text: "#111225" },
+  ];
+  return (
+    <svg
+      viewBox="0 0 560 320"
+      className="h-full w-full"
+      role="img"
+      aria-label="Illustration of the OrinexSoft platform stack, from infrastructure up to products"
+    >
+      <rect width="560" height="320" fill="#F7F6FF" />
+      {/* faint vertical guide */}
+      <line x1="280" y1="30" x2="280" y2="290" stroke="#6842FF" strokeOpacity="0.2" strokeDasharray="3 6" />
+      {layers.map((l, i) => {
+        const y = 236 - i * 42;
+        const x = 280 - l.w / 2 + (i % 2 === 0 ? -14 : 14) * (4 - i) * 0.5;
+        return (
+          <g key={l.label}>
+            <rect
+              x={x}
+              y={y}
+              width={l.w}
+              height={30}
+              rx={8}
+              fill={l.fill}
+            />
+            <text
+              x={280}
+              y={y + 19}
+              textAnchor="middle"
+              fontSize="11.5"
+              fontWeight="700"
+              fill={l.text}
+            >
+              {l.label}
+            </text>
+            {i < layers.length - 1 && (
+              <path
+                d={`M280 ${y - 6} l-5 8 h10 z`}
+                fill="#6842FF"
+                opacity="0.55"
+                transform={`rotate(180 280 ${y - 2})`}
+              />
+            )}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 const CAPABILITIES = [
   {
-    icon: "M8 6l-5 6 5 6M16 6l5 6-5 6",
     title: "Software Engineering",
-    body: "Build robust, scalable applications.",
+    body: "Typed codebases, reviewed changes, tested surfaces.",
   },
   {
-    icon: "M12 3a4 4 0 014 4c0 1.7-.9 2.6-1.5 3.5-.4.6-.5 1-.5 1.5h-4c0-.5-.1-.9-.5-1.5C9 9.6 8 8.7 8 7a4 4 0 014-4zM10 15h4M10.5 18h3",
     title: "Artificial Intelligence",
-    body: "Integrate intelligence into everyday tools.",
+    body: "Models where they earn their place — routing, summarization, anomaly detection.",
   },
   {
-    icon: "M13 2L4 14h6l-1 8 9-12h-6l1-8z",
     title: "Automation",
-    body: "Automate work, amplify productivity.",
+    body: "Workflows that remove repetitive paths and log every step.",
   },
   {
-    icon: "M17.5 19a4.5 4.5 0 000-9 6 6 0 00-11.6 1.6A4 4 0 007 19h10.5z",
     title: "Cloud & Infrastructure",
-    body: "Scale with confidence.",
+    body: "Multi-region deployments and uptime treated as a feature.",
   },
   {
-    icon: "M4 7h16v13H4zM4 7l3-4h10l3 4M9 12h6",
     title: "Data Intelligence",
-    body: "Turn data into value.",
+    body: "Pipelines and dashboards that turn events into decisions.",
   },
   {
-    icon: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
     title: "Digital Platforms",
-    body: "Create seamless digital experiences.",
+    body: "Web products designed for daily use, not demos.",
   },
 ];
 
 export default function Technology() {
   return (
-    <section id="technology" className="bg-white" aria-labelledby="technology-heading">
-      <div className="container-x py-16 sm:py-20">
+    <section id="technology" className="border-t border-line bg-white" aria-labelledby="technology-heading">
+      <div className="container-x py-20 sm:py-24">
         <Reveal>
           <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">
             Technology &amp; Capabilities
           </p>
           <h2
             id="technology-heading"
-            className="font-display mt-2.5 text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
+            className="font-display mt-3 max-w-2xl text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
           >
             Capabilities that power our products.
           </h2>
-          <p className="mt-3 max-w-2xl text-[14.5px] leading-relaxed text-muted">
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted">
             A strong foundation of modern technologies to build scalable,
             intelligent and secure solutions.
           </p>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div className="mt-9 grid grid-cols-2 gap-4 lg:grid-cols-6">
-            {CAPABILITIES.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-xl border border-line bg-soft/60 p-4 transition-colors hover:border-violet/40 hover:bg-white"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-violet/25 bg-white">
-                  <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] text-violet" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d={c.icon} />
-                  </svg>
-                </span>
-                <h3 className="mt-3.5 text-[13.5px] font-bold text-navy">{c.title}</h3>
-                <p className="mt-1.5 text-[12px] leading-relaxed text-muted">{c.body}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          {/* Generated stack artwork */}
+          <Reveal>
+            <div className="overflow-hidden rounded-2xl border border-line">
+              <StackArt />
+            </div>
+          </Reveal>
+
+          {/* Minimal capability index */}
+          <Reveal delay={120}>
+            <div>
+              {CAPABILITIES.map((c, i) => (
+                <div
+                  key={c.title}
+                  className={`py-5 ${i > 0 ? "border-t border-line" : ""}`}
+                >
+                  <h3 className="text-[15.5px] font-bold text-navy">{c.title}</h3>
+                  <p className="mt-1 text-[13.5px] leading-relaxed text-muted">{c.body}</p>
+                </div>
+              ))}
+              <div className="border-t border-line" />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

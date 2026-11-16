@@ -54,9 +54,9 @@ export default function Philosophy() {
             {PRINCIPLES.map((p, i) => (
               <div
                 key={p.n}
-                className={`flex items-start gap-5 py-5 ${i > 0 ? "border-t border-line" : ""}`}
+                className={`flex items-baseline gap-6 py-5 ${i > 0 ? "border-t border-line" : ""}`}
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-violet text-[12px] font-bold text-white">
+                <span className="font-display text-[13px] font-bold tracking-[0.16em] text-muted">
                   {p.n}
                 </span>
                 <span>
