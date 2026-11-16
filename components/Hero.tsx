@@ -52,7 +52,28 @@ export default function Hero() {
 
         {/* Product visual */}
         <Reveal delay={140}>
-          <DashboardMockup />
+          <div className="relative">
+            {/* lavender glow behind the dashboard */}
+            <div
+              className="absolute -inset-8 rounded-[3rem] bg-lavender/70 blur-[70px]"
+              aria-hidden="true"
+            />
+            <div className="relative [transform:perspective(1600px)_rotateY(-7deg)_rotateX(2deg)]">
+              <DashboardMockup />
+              {/* small floating card — illustrative sample UI */}
+              <div className="absolute -bottom-7 right-8 z-[3] flex items-center gap-2.5 rounded-xl border border-line bg-white px-4 py-3 shadow-[0_12px_32px_rgba(17,18,37,0.14)]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100">
+                  <svg viewBox="0 0 12 12" className="h-3 w-3 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2.5 6.5l2.5 2.5 4.5-5" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-[12px] font-semibold text-navy">Workflow run completed</span>
+                  <span className="block text-[10.5px] text-muted">Sample UI · just now</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

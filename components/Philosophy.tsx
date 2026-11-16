@@ -21,7 +21,7 @@ const PRINCIPLES = [
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="bg-white" aria-labelledby="philosophy-heading">
+    <section id="philosophy" className="bg-soft" aria-labelledby="philosophy-heading">
       <div className="container-x grid gap-12 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
           <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">

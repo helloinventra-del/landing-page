@@ -2,17 +2,17 @@
 
 @theme {
   /* OrinexSoft design tokens — reference palette */
-  --color-navy: #111426; /* primary text */
-  --color-deep: #111224; /* dark CTA band */
-  --color-card: #111224;
-  --color-midnight: #111224;
-  --color-violet: #6945f5; /* primary purple */
+  --color-navy: #111225; /* primary text */
+  --color-deep: #111225; /* dark CTA band */
+  --color-card: #111225;
+  --color-midnight: #111225;
+  --color-violet: #6842ff; /* primary purple */
   --color-violet-soft: #8a68ff; /* secondary purple */
   --color-lavender: #f0ecff; /* light purple surface */
   --color-cool: #667085; /* secondary text */
   --color-muted: #667085;
-  --color-soft: #f8f8fc; /* light background */
-  --color-line: #e9e9f1; /* borders */
+  --color-soft: #f7f6ff; /* light background */
+  --color-line: #e7e8f1; /* borders */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, sans-serif;
