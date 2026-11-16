@@ -1,92 +1,118 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 
-/* Generated ecosystem artwork — a flow of connected service nodes across the
-   OrinexSoft platform. Pure SVG, brand palette, no fake data. */
-function EcosystemArt() {
-  const nodes = [
-    { x: 150, y: 150 },
-    { x: 320, y: 110 },
-    { x: 480, y: 170 },
-    { x: 645, y: 105 },
-    { x: 810, y: 165 },
-    { x: 960, y: 115 },
-  ];
-  const curves = [
-    "M150 150 C 210 120, 260 104, 320 110",
-    "M320 110 C 380 118, 430 148, 480 170",
-    "M480 170 C 540 158, 590 116, 645 105",
-    "M645 105 C 710 112, 760 148, 810 165",
-    "M810 165 C 860 150, 910 128, 960 115",
-    "M150 150 C 240 210, 340 240, 480 232 S 760 210, 960 115",
-  ];
+/* Status badge styling per real product state. */
+const STATUS_STYLES: Record<string, string> = {
+  Live: "bg-emerald-50 text-emerald-700",
+  Beta: "bg-lavender text-violet",
+  "Coming Soon": "border border-line bg-soft text-muted",
+};
+
+function StatusBadge({ status }: { status: string }) {
   return (
-    <svg
-      viewBox="0 0 1120 380"
-      className="h-full w-full"
-      role="img"
-      aria-label="Illustration of OrinexSoft products connected as one platform ecosystem"
+    <span
+      className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-[0.08em] uppercase ${STATUS_STYLES[status] ?? "border border-line bg-soft text-muted"}`}
     >
-      <defs>
-        <radialGradient id="eco-glow" cx="50%" cy="42%" r="60%">
-          <stop offset="0%" stopColor="#6842FF" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="#6842FF" stopOpacity="0" />
-        </radialGradient>
-        <pattern id="eco-dots" width="26" height="26" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1.2" fill="rgb(255 255 255 / 0.07)" />
-        </pattern>
-      </defs>
+      {status}
+    </span>
+  );
+}
 
-      <rect width="1120" height="380" fill="url(#eco-dots)" />
-      <rect width="1120" height="380" fill="url(#eco-glow)" />
-
-      {/* connections */}
-      {curves.map((d, i) => (
-        <path key={i} d={d} fill="none" stroke="#6842FF" strokeOpacity={i === 5 ? 0.5 : 0.35} strokeWidth="1.6" />
-      ))}
-
-      {/* floating skeleton panels */}
-      <g>
-        <rect x="240" y="70" width="168" height="56" rx="10" fill="rgb(255 255 255 / 0.05)" stroke="rgb(255 255 255 / 0.10)" />
-        <rect x="254" y="84" width="64" height="6" rx="3" fill="rgb(255 255 255 / 0.16)" />
-        <rect x="254" y="98" width="96" height="6" rx="3" fill="rgb(255 255 255 / 0.09)" />
-      </g>
-      <g>
-        <rect x="700" y="236" width="168" height="56" rx="10" fill="rgb(255 255 255 / 0.05)" stroke="rgb(255 255 255 / 0.10)" />
-        <rect x="714" y="250" width="72" height="6" rx="3" fill="rgb(138 104 255 / 0.8)" />
-        <rect x="714" y="264" width="100" height="6" rx="3" fill="rgb(255 255 255 / 0.09)" />
-      </g>
-
-      {/* service nodes */}
-      {nodes.map((n, i) => (
-        <g key={i}>
-          <circle cx={n.x} cy={n.y} r="14" fill="#101322" stroke="#8A68FF" strokeWidth="2" />
-          <circle cx={n.x} cy={n.y} r="5" fill="#6842FF" />
-          {i % 2 === 0 && (
-            <circle cx={n.x} cy={n.y} r="22" fill="none" stroke="#8A68FF" strokeOpacity="0.3" />
-          )}
-        </g>
-      ))}
+function ArrowIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-const PRODUCT_INDEX = [
+/* Workflow steps for the illustrative OrinexFlow editor sketch. */
+const FLOW_STEPS = [
   {
-    name: "OrinexFlow",
-    area: "Operations automation",
-    status: "Live",
-    href: "/contact",
+    title: "Trigger",
+    sub: "New request",
+    glyph: "M13 2L4.5 13.5h6L10 22l8.5-11.5h-6L13 2z",
   },
+  {
+    title: "Validate",
+    sub: "Rules check",
+    glyph: "M4.5 12.5l4.5 4.5 10-11",
+  },
+  {
+    title: "Route",
+    sub: "Assign owner",
+    glyph: "M6 4v9a4 4 0 004 4h8m0 0l-3.5-3.5M18 17l-3.5 3.5",
+  },
+  {
+    title: "Resolve",
+    sub: "Sync & log",
+    glyph: "M12 3l8 4.5-8 4.5-8-4.5L12 3zM4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5",
+  },
+];
+
+/**
+ * Illustrative OrinexFlow workflow editor — sample UI showing how a process
+ * moves through automation steps. Clearly labeled, no real customer data.
+ */
+function FlowDiagram() {
+  return (
+    <div className="rounded-lg border border-line bg-soft p-4" aria-hidden="true">
+      <div className="flex items-center justify-between">
+        <span className="text-[10px] font-bold tracking-[0.1em] text-muted uppercase">
+          Sample workflow
+        </span>
+        <span className="rounded-full border border-line bg-white px-2 py-0.5 text-[9px] font-semibold text-muted">
+          Illustrative UI
+        </span>
+      </div>
+
+      <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+        {FLOW_STEPS.map((step, i) => (
+          <div key={step.title} className="relative">
+            <div className="rounded-lg border border-line bg-white px-2 py-3 text-center">
+              <svg viewBox="0 0 24 24" className="mx-auto h-4 w-4 text-violet" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                <path d={step.glyph} />
+              </svg>
+              <p className="mt-1.5 text-[11.5px] font-bold text-navy">{step.title}</p>
+              <p className="mt-0.5 text-[9.5px] text-muted">{step.sub}</p>
+            </div>
+            {/* connector between steps on wider screens */}
+            {i < FLOW_STEPS.length - 1 && (
+              <svg
+                viewBox="0 0 16 16"
+                className="absolute -right-[18px] top-1/2 z-[1] hidden h-3.5 w-3.5 -translate-y-1/2 text-violet/60 sm:block"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-3 flex items-center gap-1.5 text-[10.5px] text-muted">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+        Every run is logged and auditable.
+      </p>
+    </div>
+  );
+}
+
+/* Real product data — statuses reflect actual availability. */
+const COMPACT_PRODUCTS = [
   {
     name: "OrinexAnalytics",
     area: "Analytics & reporting",
+    desc: "Turn data into insights with powerful analytics tools.",
     status: "Beta",
     href: "/contact",
   },
   {
     name: "OrinexCloud",
     area: "Cloud platform",
+    desc: "Scale your ideas with our next-gen cloud platform.",
     status: "Coming Soon",
     href: "/contact",
   },
@@ -95,76 +121,81 @@ const PRODUCT_INDEX = [
 export default function Products() {
   return (
     <section id="products" className="bg-white" aria-labelledby="products-heading">
-      <div className="container-x py-20 sm:py-24">
+      <div className="container-x pt-10 pb-16 sm:pt-16 sm:pb-20 lg:pt-20">
         <Reveal>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">
-                Our Products
-              </p>
-              <h2
-                id="products-heading"
-                className="font-display mt-3 max-w-2xl text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
-              >
-                Products built to make a difference.
-              </h2>
-              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted">
-                An ecosystem of products designed to solve real problems, from
-                productivity to automation and beyond.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex shrink-0 items-center gap-1.5 text-[13.5px] font-semibold text-violet transition-colors hover:text-navy"
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">
+              Our Products
+            </p>
+            <h2
+              id="products-heading"
+              className="font-display mt-3 text-[30px] font-bold leading-tight tracking-tight text-navy sm:text-[34px]"
             >
-              View all products
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+              Products built to make a difference.
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted">
+              An ecosystem of products designed to solve real problems, from
+              productivity to automation and beyond.
+            </p>
           </div>
         </Reveal>
 
-        {/* Generated ecosystem artwork */}
-        <Reveal delay={100}>
-          <div className="mt-10 overflow-hidden rounded-2xl border border-navy/10 bg-deep">
-            <EcosystemArt />
-          </div>
-        </Reveal>
+        {/* Asymmetric showcase: featured OrinexFlow, compact siblings */}
+        <div className="mt-10 grid gap-5 lg:grid-cols-12">
+          {/* Featured — OrinexFlow */}
+          <Reveal className="lg:col-span-7">
+            <article className="flex h-full flex-col rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,19,34,0.05)] transition-shadow hover:shadow-[0_16px_40px_rgba(17,18,36,0.10)] sm:p-7">
+              <div className="flex items-center gap-3">
+                <h3 className="font-display text-[19px] font-bold text-navy">OrinexFlow</h3>
+                <StatusBadge status="Live" />
+              </div>
+              <p className="mt-1 text-[12.5px] font-medium text-muted">Operations automation</p>
+              <p className="mt-3 max-w-md text-[14.5px] leading-relaxed text-muted">
+                Automate your workflows and boost productivity with intelligent
+                process automation.
+              </p>
 
-        {/* Minimal typographic product index */}
-        <Reveal delay={140}>
-          <div className="mt-2">
-            {PRODUCT_INDEX.map((p, i) => (
-              <div
-                key={p.name}
-                className={`grid items-baseline gap-2 py-6 sm:grid-cols-[1fr_auto_auto] sm:gap-8 ${
-                  i > 0 ? "border-t border-line" : ""
-                }`}
-              >
-                <div>
-                  <h3 className="text-[17px] font-bold text-navy transition-colors hover:text-violet">
-                    <Link href={p.href}>{p.name}</Link>
-                  </h3>
-                  <p className="mt-1 text-[13.5px] text-muted">{p.area}</p>
-                </div>
-                <span className="text-[12px] font-semibold text-muted sm:text-right">
-                  {p.status}
-                </span>
+              <div className="mt-6">
+                <FlowDiagram />
+              </div>
+
+              <div className="mt-auto pt-6">
                 <Link
-                  href={p.href}
-                  className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-navy transition-colors hover:text-violet sm:justify-self-end"
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-violet transition-colors hover:text-navy"
                 >
-                  Explore
-                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  Explore OrinexFlow
+                  <ArrowIcon className="h-3.5 w-3.5" />
                 </Link>
               </div>
+            </article>
+          </Reveal>
+
+          {/* Compact — OrinexAnalytics + OrinexCloud */}
+          <div className="grid gap-5 lg:col-span-5">
+            {COMPACT_PRODUCTS.map((p, i) => (
+              <Reveal key={p.name} delay={80 + i * 80} className="h-full">
+                <article className="flex h-full flex-col rounded-xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,19,34,0.05)] transition-shadow hover:shadow-[0_16px_40px_rgba(17,18,36,0.10)] sm:p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="font-display text-[17px] font-bold text-navy">{p.name}</h3>
+                    <StatusBadge status={p.status} />
+                  </div>
+                  <p className="mt-1 text-[12.5px] font-medium text-muted">{p.area}</p>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted">{p.desc}</p>
+                  <div className="mt-auto pt-5">
+                    <Link
+                      href={p.href}
+                      className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-violet transition-colors hover:text-navy"
+                    >
+                      Learn more
+                      <ArrowIcon className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
             ))}
-            <div className="border-t border-line" />
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

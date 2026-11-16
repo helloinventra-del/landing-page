@@ -21,8 +21,8 @@ const PRINCIPLES = [
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="bg-soft" aria-labelledby="philosophy-heading">
-      <div className="container-x grid gap-12 py-16 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <section id="philosophy" className="border-t border-line bg-soft" aria-labelledby="philosophy-heading">
+      <div className="container-x grid gap-10 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:py-20">
         <Reveal>
           <p className="text-[11px] font-bold tracking-[0.14em] text-violet uppercase">
             Our Philosophy
@@ -49,23 +49,26 @@ export default function Philosophy() {
           </Link>
         </Reveal>
 
+        {/* Compact three-step timeline */}
         <Reveal delay={120}>
-          <div>
-            {PRINCIPLES.map((p, i) => (
-              <div
-                key={p.n}
-                className={`flex items-baseline gap-6 py-5 ${i > 0 ? "border-t border-line" : ""}`}
-              >
-                <span className="font-display text-[13px] font-bold tracking-[0.16em] text-muted">
+          <ol className="relative">
+            {/* connector line through the step markers */}
+            <span
+              className="absolute bottom-5 left-[19px] top-5 w-px bg-line"
+              aria-hidden="true"
+            />
+            {PRINCIPLES.map((p) => (
+              <li key={p.n} className="relative flex gap-5 py-4">
+                <span className="font-display relative z-[1] flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-white text-[12px] font-bold tracking-[0.06em] text-violet">
                   {p.n}
                 </span>
-                <span>
+                <span className="pt-1">
                   <span className="block text-[15.5px] font-bold text-navy">{p.title}</span>
                   <span className="mt-1 block text-[13.5px] leading-relaxed text-muted">{p.body}</span>
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </Reveal>
       </div>
     </section>

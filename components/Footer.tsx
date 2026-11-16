@@ -69,10 +69,12 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[12.5px] text-muted">© 2026 OrinexSoft. All rights reserved.</p>
-          <div className="flex gap-6">
-            <span className="text-[12.5px] text-muted">Privacy Policy</span>
-            <span className="text-[12.5px] text-muted">Terms of Service</span>
-          </div>
+          <a
+            href="mailto:sales@orinexsoft.com"
+            className="text-[12.5px] font-medium text-muted transition-colors hover:text-navy"
+          >
+            sales@orinexsoft.com
+          </a>
         </div>
       </div>
     </footer>

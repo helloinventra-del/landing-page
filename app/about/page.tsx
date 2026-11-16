@@ -53,14 +53,41 @@ export default function AboutPage() {
       <section className="px-5 pb-16 sm:px-8">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="relative h-72 w-full overflow-hidden rounded-2xl border border-line sm:h-80">
-              <Image
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=75"
-                alt="The OrinexSoft team working together around a shared desk"
-                fill
-                sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-cover"
-              />
+            {/* Branded identity panel — no stock imagery */}
+            <div className="relative flex h-72 w-full flex-col justify-between overflow-hidden rounded-xl border border-line bg-deep p-7 sm:h-80 sm:p-8">
+              <div>
+                <Image
+                  src="/logo-mark.png"
+                  alt="OrinexSoft logo"
+                  width={720}
+                  height={364}
+                  className="h-10 w-auto"
+                />
+                <p className="font-display mt-4 text-[22px] font-bold tracking-tight text-white">
+                  Building what&apos;s next.
+                </p>
+                <p className="mt-2 max-w-xs text-[13.5px] leading-relaxed text-cool">
+                  Intelligent software, digital products, and technology
+                  platforms — designed to solve real-world problems.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { name: "OrinexFlow", status: "Live" },
+                  { name: "OrinexAnalytics", status: "Beta" },
+                  { name: "OrinexCloud", status: "Coming Soon" },
+                ].map((p) => (
+                  <span
+                    key={p.name}
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-[11.5px] font-semibold text-white/80"
+                  >
+                    {p.name}
+                    <span className="text-[9.5px] font-bold tracking-[0.08em] text-violet-soft uppercase">
+                      {p.status}
+                    </span>
+                  </span>
+                ))}
+              </div>
             </div>
           </Reveal>
           <Reveal delay={100}>
